@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; 
+}
+
+
+.logo img {
+    height: 124px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+nav ul li a img {
+    height: 10px;
+}
+
+.hero {
+    background: url('images/medbg.jpg') no-repeat center center;
+    background-size: cover;
+    height: 80vh;
+    width: 1500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0px 20px;
+    color: white;
+    text-align: center;
+    margin: -100px;
+    margin-top: auto;
+}
+
+.hero-content {
+    text-align: center;
+    color: black;
+    
+
+}
+
+
+.hero h1 {
+    font-size: 3em;
+    margin: 0 0 20px;
+}
+
+.hero button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background-color: darkred;
+}
+
+.services {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: #f1f1f1;
+    margin-top: 100px;
+}
+
+.service-box {
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 23%;
+}
+
+.service-box img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 2px solid #2d5643;
+    margin-bottom: 10px;
+}
+
+.service-box h2 {
+    color: #2d5643;
+    font-size: 1.2em;
+}
+.service-box h1 {
+    text-align: center;
+}
+.footer {
+    text-align: center;
+    color: white;
+}
