@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivaSecuris - Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="VivaSecuris Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#"><img src="linkedin.png" alt="LinkedIn"></a></li>
+                <li><a href="#"><img src="twitter.png" alt="Twitter"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Our Services</h1>
+                <button>CONTACT US FOR MORE INFORMATION</button>
+            </div>
+        </section>
+        <section class="services">
+            <div class="service-box">
+                <h2>Vulnerability Management</h2>
+                <p>Comprehensive plans and tools for monitoring, identifying, and addressing postmarket cybersecurity vulnerabilities and exploits in medical devices.</p>
+            </div>
+            <div class="service-box">
+                <h2>Secure Design and Development</h2>
+                <p>Consulting services and tools to help medical device manufacturers design, develop, and maintain cybersecure devices and related systems.</p>
+            </div>
+            <div class="service-box">
+                <h2>Software Bill of Materials (SBOM) Solutions</h2>
+                <p>Software to generate and manage SBOMs for medical devices, including commercial, open-source, and off-the-shelf components.</p>
+            </div>
+            <div class="service-box">
+                <h2>Postmarket Update and Patch Management</h2>
+                <p>Systems to facilitate the distribution and implementation of postmarket updates and patches for medical devices.</p>
+            </div>
+            <div class="service-box">
+                <h2>Regulatory Compliance Support</h2>
+                <p>Services to help manufacturers meet FDA cybersecurity requirements in their premarket submissions (510(k), PMA, PDP, De Novo, HDE).</p>
+            </div>
+            <div class="service-box">
+                <h2>AI-Specific Cybersecurity</h2>
+                <p>Specialized solutions to address unique cybersecurity challenges posed by AI-enabled medical devices.</p>
+            </div>
+        </section>
+
+        <section class="ai-services">
+            <h2>AI Products and AI Safety Specialization</h2>
+            <div class="service-box">
+                <h3>AI-Specific Risk Assessment</h3>
+                <p>Tailored risk assessment methodologies for AI-enabled medical devices, considering both cybersecurity and AI-specific risks.</p>
+            </div>
+            <div class="service-box">
+                <h3>AI Model Validation</h3>
+                <p>Tools and services to validate AI models used in medical devices, ensuring they perform safely and as intended across diverse patient populations.</p>
+            </div>
+            <div class="service-box">
+                <h3>AI Update Management</h3>
+                <p>Specialized solutions for securely updating AI models in deployed medical devices, maintaining cybersecurity while improving AI performance.</p>
+            </div>
+            <div class="service-box">
+                <h3>AI Ethics and Bias Mitigation</h3>
+                <p>Tools and consultancy services to identify and mitigate potential biases in AI algorithms used in medical devices, promoting fair and equitable healthcare outcomes.</p>
+            </div>
+        </section>
+
+        <section class="footer">
+            <p>&copy; 2024 VivaSecuris</p>
+        </section>
+    </main>
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.style.position = 'fixed';
+            header.style.top = '0';
+            header.style.width = '100%';
+            header.style.zIndex = '1000';
+        });
+    </script>
+</body>
+</html>
