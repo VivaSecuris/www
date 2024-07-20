@@ -1,112 +1,154 @@
+<!-- I love you -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VivaSecuris</title>
+    <style>
+        .drop-cap {
+            float: left;
+            font-size: 3.5em; /* Adjust size as needed */
+            line-height: 0.8;
+            padding-right: 0.1em;
+        }
+    </style>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="images/logo.png" alt="VivaSecuris Logo">
+            <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">About</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#"><img src="linkedin.png" alt="LinkedIn"></a></li>
-                <li><a href="#"><img src="twitter.png" alt="Twitter"></a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>THIS IS SAMPLE TEXT</h1>
-                <button>LEARN MORE OF OUR SERVICE</button>
+    <main id="home">
+        <div class="whatwebelievein" id="test">
+            <h2>Our Vision</h2>
+            <p>
+                <p><span class="drop-cap">T</span>echnology and healthcare are increasingly intertwined, the security of medical devices and the protection of patient data are more critical than ever. Imagine a pacemaker being hacked, a hospital’s entire database held ransom, or a life-saving device failing due to outdated software. These are not hypothetical scenarios—they are real threats that we face today. With every challenge comes an opportunity for innovative solutions for VivaSecuris to support you.
+            </p>
+            <p>
+                As leaders in AI security, we are committed to pioneering solutions that address these critical issues. Our proactive approach focuses on preventing vulnerabilities and seamlessly integrating advanced technologies to protect patient data and medical devices. We aim to set a new standard for security in the healthcare industry, ensuring that patient care remains safe and uninterrupted in the face of evolving cyber threats. 
+            </p>
+        </div>
+        <div class="conversation" id="problem">
+            <p>
+                The rise of Electronic Health Records (EHRs) and telemedicine has made data breaches more prevalent. Imagine waking up to news that over 41 million healthcare records have been exposed in a single year, leading to widespread identity theft and compromised patient privacy【source: HIPAA Journal】. This is the reality we face today.
+            </p>
+           <div class="images">
+                <img src="images/robotarm.png">
             </div>
-        </section>
-        <section class="services">
-            <div class="service-box">
-                <img src="images/IMG_8363.jpeg" alt="Name Last Name"> <!-- Replace with actual image -->
-                <h2>James Utley MSc, PhD, CABP, MLS(ASCP)</h2>
-                <p><h1>★★★★★</h1>
-                    They have significantly enhanced the safety and security of our healthcare facility with their comprehensive and tailored security plan.
-                    Their advanced technologies, including top-of-the-line surveillance systems and access control mechanisms,
-                    combined with their highly trained and professional security personnel,
-                    have provided us with unparalleled peace of mind.
-                    The team's expertise in handling sensitive situations and ensuring compliance with healthcare regulations is exceptional.
-                    Their quick response time and ongoing support further solidify their commitment to our security needs.
-                    I highly recommend MedSecure Solutions to any healthcare facility seeking reliable and effective security services.
-                </p>
+        </div>
+        <div class="conversation" id="solution">
+            <div class="images">
+                <img src="images/IMG_9314.png">
             </div>
-            <div class="service-box">
-                <img src="images/doctor1.jpg" alt="Name Last Name"> <!-- Replace with actual image -->
-                <h2>Josh Hill the p0sixninja</h2>
-                <p>
-                    <h1>★★★★★</h1>
-                    They have been an outstanding partner in ensuring the security of our healthcare facility.
-                    Their expertise in healthcare-specific security challenges is evident in their advanced surveillance systems,
-                    efficient access controls, and the professionalism of their security personnel.
-                    The team's prompt and effective response to any issues, along with their continuous support and training,
-                    has provided us with a secure and compliant environment.
-                    I highly recommend MedSecure Solutions for any medical facility seeking dependable and top-quality security services.
-                </p>
+            <p>
+                We leverage advanced AI and machine learning technologies to secure medical devices and patient data. Automated threat detection and response systems enable us to quickly identify and mitigate potential threats, ensuring that sensitive information remains protected.
+            </p>
+            
+        </div>
+        <div class="conversation" id="problem">
+            <p>
+                Service disruptions can occur due to cyberattacks, system failures, or even natural disasters. Picture a ransomware attack bringing an entire national health service to its knees for weeks, disrupting patient care and causing chaos across the country【source: BBC】. The fallout from such an event can be catastrophic.
+            </p>
+            <div class="images">
+                <img src="images/vitruvianman.png">
             </div>
-            <div class="service-box">
-                <img src="images/doc3.jpeg" alt="Name Last Name"> <!-- Replace with actual image -->
-                <h2>Mr. Phil Rhodes</h2>
-                <p>
-                    <h1>★★★★★</h1>
-                    Partnering with them has transformed the security landscape of our medical facility.
-                    Their cutting-edge surveillance systems and robust access control measures ensure our environment remains safe
-                    and compliant. The professionalism and attentiveness of their security staff have been exceptional,
-                    consistently providing us with peace of mind.
-                    Their swift resolution of issues and ongoing support further highlight their dedication to excellence.
-                    I highly recommend MedSecure Solutions for any healthcare organization seeking reliable and comprehensive
-                    security services.
-                </p>
+        </div>
+        <div class="conversation" id="solution">
+            <div class="images2">
+                <img src="images/IMG_9321.png">
             </div>
-            <div class="service-box">
-                <img src="images/doc4.jpg" alt=""> <!-- Replace with actual image -->
-                <h2>Alex Brown, Hospital Administrator</h2>
-                <p>
-                    <h1>★★★★★</h1>
-                    They have provided exceptional security for our healthcare facility.
-                    Their advanced systems and professional staff ensure safety and compliance at all times.
-                    Quick response and continuous support make them an invaluable partner. Highly recommended!
-                </p>
+            <p>
+                Proper scanning of medical device software is crucial to ensure patient safety and regulatory compliance. It helps identify vulnerabilities and potential security threats before they can be exploited, preventing malfunctions that could lead to severe health risks. Additionally, thorough scanning safeguards sensitive patient data, maintaining trust and upholding the integrity of healthcare systems.
+            </p>
+        </div>
+        <div class="conversation" id="problem">
+            <p>
+                Hackers are increasingly targeting critical care medical devices. Envision a scenario where a ransomware attack affects hospitals worldwide, causing significant disruptions in medical services and putting countless lives at risk【source: NHS】. The threat is not just theoretical; it’s happening now.
+            </p>
+            <div class="images">
+                <img src="images/skull.png">
             </div>
-            <div class="service-box">
-                <img src="images/doc5.jpg" alt=""> <!-- Replace with actual image -->
-                <h2>David Clark, Operations Manager</h2>
-                <p>
-                    <h1>★★★★★</h1>
-                    They have been instrumental in safeguarding our hospital.
-                    Their state-of-the-art security systems and professional personnel provide us with unmatched protection and
-                    peace of mind. Their prompt support and responsiveness are commendable.
-                    Highly recommend them for any medical facility!
-                </p>
+        </div>
+        <div class="conversation" id="solution">
+            <div class="images2">
+                <img src="images/IMG_9323.JPG">
             </div>
-            <div class="service-box">
-                <img src="images/doc6.jpg" alt=""> <!-- Replace with actual image -->
-                <h2>Linda Martinez, Director of Nursing</h2>
-                <p>
-                    <h1>★★★★★</h1>
-                    They have delivered exceptional security services for our clinic.
-                    Their advanced technology and vigilant staff have greatly enhanced our safety.
-                    Their quick response and ongoing support are top-notch. Highly recommended!
-                </p>
+            <p>
+                Vendor risk management is essential. Regular system checks, reliable backups, and comprehensive disaster recovery plans ensure that we are prepared for any contingency. By consolidating security measures, we make them easier to manage and more effective.
+            </p>
+        </div>
+        <div class="conversation" id="problem">
+            <p>
+                The healthcare industry must constantly adapt to evolving threats. Imagine learning that 83% of healthcare systems experienced a cyberattack in a single year【source: Ponemon Institute】. This statistic is a wake-up call to the urgent need for enhanced security measures.
+            </p>
+            <div class="images">
+                <img src="images/testtube.JPG">
             </div>
-        </section>
-
-        <section class="footer">
-            <p>&copy; 2024 VivaSecuris</p>
-        </section>
+        </div>
+        <div class="conversation" id="solution">
+            <p>
+                We advocate for regular risk assessments and continuous improvement of defenses. By integrating advanced technologies and maintaining a proactive approach, we can protect our healthcare system and ensure uninterrupted, safe patient care.
+            </p>
+        </div>
         
+
+        <section id="about">
+            <h1>Who We Are</h1>
+            <div class="bios">
+                <div class="container">
+                    <div class="imageandbio">
+                        <div class="bio">
+                            <img src="images/joshua-hill-e1668506847239.jpg" alt="Joshua Hill">
+                            <div class="description">
+                                <h1>Joshua Hill</h1>
+                                <p>CTO&nbsp;</p>
+        <p class="paragraph">Joshua Hill aka @p0sixninja is a self-taught mad scientist and security architect. I life long hacker of anything that piques his interests. CEO of Pseudosecurity Labs Inc. and CTO of VivaSecuris. Ex-member of Chronic-Dev Team and iPhone Dream Team. The chief architect of GreenPois0n and Absinthe jailbreaks. Developer of idevicerestore, libirecovery, among others.</p>
+                            </div>
+                        </div>
+                        <div class="bio">
+                            <img src="images/IMG_8363.jpeg" alt="Cool Person">
+                            <div class="description">
+                                <h1>James Utley&nbsp;MSc, PhD</h1>
+                                <p>CEO&nbsp;</p>
+        <p>Meet Dr. James Utley, PhD. He's not your typical Immunohematology guru. For over two decades, he's been crafting a niche in cellular therapy across the U.S. A proud alum of Johns Hopkins, he took a detour to the Department of Defense, where he reimagined the whole cellular transfusion scene. But here's where it gets intriguing: James is a Biohacker at heart. He's been on the cutting edge, self-experimenting and pushing the boundaries of CRISPR and genetic engineering like a true avant-garde scientist. Then there's his stint at Banner Health. Not just any role, mind you. He was the Technical Director of all the blood banks and transfusion services, overseeing a monumental 150K successful cellular transfusions with his artisanal touch. But James isn't just about numbers. He's penned thoughts in some of the most avant-garde medical journals and has been the force behind some truly innovative FDA-approved breakthroughs. And here's the kicker: this former Navy Scientist traded in his lab coat to chart the unexplored waters of the stem cell revolution. Some even call him the "pirate" of the cellular world. Now, as the Chief Scientific Officer at Auragens, he's making waves and a difference in the world every single day. Cheers to the unconventional trailblazer and world-changer!</p>
+                            </div>
+                        </div>
+                        <div class="bio">
+                            <img src="images/Phil's pic full size.jpg" alt="Another Cool Person">
+                            <div class="description">
+                                <h1>Phil Rhodes</h1>
+                                <p>COO&nbsp;</p>
+        <p>“Phil Rhodes is an accomplished leader with over two decades of experience in military and civilian roles. He is a medical device cybersecurity champion, "Big A" Airman, USN Senior Chief, and soon-to-be Mustang Officer. As the COO of Vivasecuris he oversees critical programs and day-to-day operations. He's a federal government programs expert, leader, and mentor with expertise in leadership, communication, decision-making, and project management. He is a results-oriented professional with a proven track record of modernizing systems, streamlining processes, and building high-performing teams. In his personal life, he is a devoted husband and father of three, a casual gamer, jiu-jitsu enthusiast, and a dedicated walker of his dachshund.”</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h1>Contact Us</h1>
+            <ul class="social-media">
+                <li><a href="https://www.linkedin.com/company/vivasecuris/"><img src="images/linkedin.svg" alt="LinkedIn" width="32" height="32"></a></li>
+                <li><a href="https://x.com/vivasecuris"><img src="images/logo-white.png" alt="Twitter" width="32" height="32"></a></li><br>
+                <li>Address: Somewhere in Las Vegas</li><br>
+                <li>Phone: 8675309</li>
+            </ul>
+        </section>
     </main>
     <script>
         window.addEventListener('scroll', function() {

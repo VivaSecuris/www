@@ -1,125 +1,308 @@
+/* I love you */
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: black;
+    padding: 0;
+    font-family: "Electrolize", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-
 header {
+    background: #ffffff;
+    color: #000000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 0px;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-right: 0px;
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000; 
+    z-index: 1000;
+    height: 110px;
+}
+main {
+    background: #ffffff;
 }
 
-
-.logo img {
-    height: 124px;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-
-nav ul li a img {
-    height: 10px;
-}
-
-.hero {
-    background: url('images/medbg.jpg') no-repeat center center;
-    background-size: cover;
-    height: 80vh;
-    width: 1500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 0px 20px;
-    color: white;
-    text-align: center;
-    margin: -100px;
-    margin-top: auto;
-}
-
-.hero-content {
-    text-align: center;
-    color: black;
-    
-
-}
-
-
-.hero h1 {
-    font-size: 3em;
-    margin: 0 0 20px;
-}
-
-.hero button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-.hero button:hover {
-    background-color: darkred;
-}
-
-.services {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 20px;
-    background-color: #f1f1f1;
+main section {
+    padding: 10px 10px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     margin-top: 100px;
 }
 
-.service-box {
-    background-color: white;
-    text-align: center;
-    padding: 20px;
-    margin: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 23%;
-}
-
-.service-box img {
-    max-width: 100%;
-    height: auto;
-    border-bottom: 2px solid #2d5643;
-    margin-bottom: 10px;
-}
-
-.service-box h2 {
-    color: #2d5643;
-    font-size: 1.2em;
-}
-.service-box h1 {
-    text-align: center;
-}
-.footer {
-    text-align: center;
+main div {
+    margin-top: 40px;
+    background-color: black;
     color: white;
+    width: 100%;
+}
+#test {
+    background-color: #FFFFFF;
+    color: #000000;
+    margin-right: 100px;
+}
+#test > p {
+    padding: 10px 200px 10px 200px;
+
+
+}
+.whatwebelievein {
+    margin: 100px 0 0 0;
+   width: 100%;
+}
+#problem > p {
+    padding: 20px;
+    margin: auto;
+    text-align: justify;
+}
+#solution {
+    background-color: white;
+    
+}
+#solution > p {
+    color: #000000;
+    margin: auto;
+    text-align: justify;
+    padding: 20px;
+}
+.conversation {
+    display: flex;
+    margin: 0px;
+}
+.images {
+    margin: 30px  30px 30px 30px;
+
+}
+
+.images2 {
+    padding: 0px  30px 30px 30px;
+    background-color: white;
+}
+
+#blurb > h2 {
+    background-color: black;
+    color: #FFFFFF;
+}
+
+img {
+    height: 400px;
+    
+}
+
+header .logo img {
+    height: 100px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 36px;
+    padding: 0px;
+}
+
+header nav ul li {
+    margin: 10px;
+}
+
+header nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+header nav ul li a:hover {
+    background: #000000;
+}
+
+
+#contact {
+    margin-top: 30px;
+    color: white;
+    padding: -10px 0px 0px -90px;
+	background-color: black;
+}
+
+h2 {
+    background-color: #FFFFFF;
+	border-radius: 40px;
+	margin: 50px 0px 0px;
+	padding: 10px;
+	transition: all 0s ease 0s;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.social-media {
+    list-style: none;
+    padding: 0;
+}
+
+.social-media li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-media img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s;
+}
+
+.social-media img:hover {
+    transform: scale(1.1);
+}
+
+#research {
+    margin: 0px;
+    background-color: black;
+}
+
+#services {
+    padding: 0px;
+    background-color: white;
+    text-align: left;
+    overflow-wrap: break-word;
+    margin: 20px 0px 20px 0px;
+}
+
+/* first-section + white-paragraph*/
+#first-section {
+	background-color: #FFFFFF;
+	margin: 0px 0px 0px 0px;
+	transition: all 0s ease 0s;
+
+}
+.white-paragraph {
+    color: #000000;
+	flex-basis: 0%;
+	flex-grow: 1;
+	font-family: Electrolize, sans-serif;
+    margin: 16px 0px 16px 0px;
+    overflow-wrap: break-word;
+	text-align: justify;
+	transition: all 0s ease 0s;
+    background-color: white;
+}
+
+div.flex-container {
+	align-items: flex-start;
+	background-color: #000000;
+	display: flex;
+    justify-content: right;
+	margin: 0px 0px 0px 10px;
+	transition: all 0s ease 0s;
+}
+
+.flex-container img {
+   
+}
+
+.flex-container p {
+    flex: 1;
+    margin: 10px;
+}
+
+.text-content {
+    flex: 1;
+	text-align: justify;
+    word-wrap: break-word;
+    margin: 80px 0 0 0;
+    
+	
+}
+
+.right-image {
+    padding: 20px;
+    max-width: 30%;
+    margin-left: 5px;
+}
+
+.right-flex-container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 0px;
+}
+
+#first, h2 {
+    overflow-wrap: break-word;
+    color: black;
+    text-align: center;
+	
+    
+
+}
+/*#first-section > p {
+    color: #000000;
+	flex-basis: 0%;
+	flex-grow: 1;
+	font-family: Electrolize, sans-serif;
+	margin: 16px 50px 16px 50px;
+	overflow-wrap: break-word;
+	text-align: justify;
+	transition: all 0s ease 0s;
+}*/
+div.middle-content {
+	background-color: #ffffff;
+	margin: 40px 0px 0px;
+	transition: all 0s ease 0s;
+}
+#second > p {
+	background-color: #000000;
+	padding: 10px 10px 10px 10px;
+	transition: all 0s ease 0s;
+    color: white;
+	
+}
+#second {
+    margin: 0px;
+    background-color: #000000;
+	transition: all 0s ease 0s;
+
+}
+
+  .third {
+    color: #FFFFFF;
+	font-family: Electrolize, sans-serif;
+	margin: 16px -36px;
+	overflow-wrap: break-word;
+	text-align: right;
+	transition: all 0s ease 0s;
+}
+
+#about {
+	background-color: black;
+	color: white;
+
+}
+#about > h1 {
+	text-align: center;
+}
+
+.imageandbio {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust the gap as needed */
+}
+
+.bio {
+    text-align: center;
+}
+
+.bio img {
+    width: 150px; /* Adjust the size as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.description {
+    margin-top: 10px;
+    font-size: 16px; /* Adjust the size as needed */
 }
