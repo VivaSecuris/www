@@ -15,20 +15,59 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Contact form handling (only on pages that have the form, e.g. index.html)
+// Contact form — POST (application/x-www-form-urlencoded) to /api/contact; nginx proxies to Python on loopback.
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    const statusEl = document.getElementById('contactFormStatus');
+    const submitBtn = document.getElementById('contactFormSubmit');
+    const contactApiPath = contactForm.getAttribute('data-contact-api') || '/api/contact';
+
+    function setStatus(msg, kind) {
+        if (!statusEl) return;
+        statusEl.hidden = !msg;
+        statusEl.textContent = msg || '';
+        statusEl.classList.remove('form-status--ok', 'form-status--err');
+        if (kind) statusEl.classList.add(kind === 'ok' ? 'form-status--ok' : 'form-status--err');
+    }
+
+    contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            organization: document.getElementById('organization').value,
-            role: document.getElementById('role').value,
-            message: document.getElementById('message').value
-        };
-        alert('Thank you for your message! We\'ll get back to you soon.\n\nNote: This is a demo. In production, this would send an email or API request.');
-        this.reset();
+        const params = new URLSearchParams(new FormData(contactForm));
+
+        if (submitBtn) submitBtn.disabled = true;
+        setStatus('Sending…', '');
+
+        try {
+            const res = await fetch(contactApiPath, {
+                method: 'POST',
+                body: params,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    Accept: 'application/json'
+                },
+                credentials: 'same-origin'
+            });
+            const text = await res.text();
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch {
+                data = {};
+            }
+
+            if (res.ok && data.ok) {
+                setStatus(data.message || 'Thank you — we received your message.', 'ok');
+                contactForm.reset();
+            } else if (res.status === 404) {
+                setStatus('Contact form is not configured on this server yet.', 'err');
+            } else {
+                setStatus(data.error || `Could not send (${res.status}).`, 'err');
+            }
+        } catch {
+            setStatus('Could not send. Check your connection and try again.', 'err');
+        } finally {
+            if (submitBtn) submitBtn.disabled = false;
+        }
     });
 }
 
@@ -38,13 +77,13 @@ const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll <= 0) {
         navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
     } else {
         navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
     }
-    
+
     lastScroll = currentScroll;
 });
 
@@ -77,7 +116,7 @@ const navLinks = document.querySelectorAll('.nav-menu a');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
@@ -85,7 +124,7 @@ window.addEventListener('scroll', () => {
             current = section.getAttribute('id');
         }
     });
-    
+
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
@@ -122,4 +161,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-

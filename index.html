@@ -171,7 +171,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form id="contactForm" action="/api/contact" method="post" data-contact-api="/api/contact">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -202,7 +202,8 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" placeholder="Tell us about your interest in VivaSecuris..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-solution">Request a conversation</button>
+                        <button type="submit" class="btn btn-solution" id="contactFormSubmit">Request a conversation</button>
+                        <p id="contactFormStatus" class="form-status" role="status" aria-live="polite" hidden></p>
                     </form>
                 </div>
             </div>

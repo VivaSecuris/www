@@ -1149,6 +1149,25 @@ body {
     resize: vertical;
 }
 
+.form-status {
+    margin-top: 16px;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.form-status--ok {
+    color: #1a6b3a;
+}
+
+.form-status--err {
+    color: var(--primary-color);
+}
+
+.contact-form .btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
 .contact-credentials {
     margin-top: 30px;
     padding: 25px;
