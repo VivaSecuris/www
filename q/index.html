@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Clinic technology &amp; patient care — 5-minute questionnaire</title>
+<link rel="icon" href="/favicon.ico">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px; line-height: 1.5; color: #1a1a1a; background: #f8f9fa;
+    margin: 0; padding: 16px;
+  }
+  main { max-width: 640px; margin: 0 auto; }
+  h1 { font-size: 1.25rem; line-height: 1.3; margin: 8px 0 4px; }
+  .meta { font-size: 0.85rem; color: #555; font-style: italic; margin: 0 0 12px; }
+  .card {
+    background: #fff; border: 1px solid #e0e0e0; border-radius: 10px;
+    padding: 14px 16px; margin: 12px 0;
+  }
+  .intro { font-size: 0.9rem; color: #333; }
+  .qnum { font-weight: 700; }
+  .hint { font-size: 0.85rem; color: #666; font-style: italic; }
+  label.opt {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 7px 4px; cursor: pointer;
+  }
+  label.opt input { margin-top: 3px; flex-shrink: 0; }
+  input[type=text], textarea, select {
+    width: 100%; font: inherit; padding: 9px 10px; margin-top: 6px;
+    border: 1px solid #bbb; border-radius: 8px; background: #fff; color: inherit;
+  }
+  textarea { min-height: 96px; resize: vertical; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .row > div { flex: 1 1 160px; }
+  button {
+    font: inherit; font-weight: 600; cursor: pointer;
+    border-radius: 10px; padding: 12px 18px; border: 1px solid #8b1528;
+  }
+  .primary { background: #c41e3a; color: #fff; width: 100%; margin-top: 4px; }
+  .primary:hover { background: #8b1528; }
+  .secondary { background: #fff; color: #c41e3a; margin-right: 8px; }
+  #review { display: none; }
+  #compiled {
+    width: 100%; min-height: 260px; font-family: ui-monospace, Menlo, monospace;
+    font-size: 0.8rem; white-space: pre-wrap;
+  }
+  .send-note { font-size: 0.85rem; color: #444; }
+  a.mailbtn {
+    display: inline-block; text-decoration: none; font-weight: 600;
+    background: #c41e3a; color: #fff; border-radius: 10px; padding: 12px 18px;
+  }
+  a.mailbtn:hover { background: #8b1528; }
+  .copied { color: #27ae60; font-weight: 600; font-size: 0.9rem; margin-left: 8px; }
+  footer { text-align: center; font-size: 0.8rem; color: #777; margin: 24px 0 8px; }
+  footer a { color: #777; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>How does technology help — or get in the way of — patient care?</h1>
+<p class="meta">~5 minutes · independent research — not from your employer or management</p>
+
+<div class="card intro">
+  I'm an independent health-tech researcher studying how clinical technology supports — or
+  interferes with — real patient care. This page reached you through a clinician or colleague
+  who knows me — thank you for giving it five minutes. Nothing you write will ever be shared
+  with your employer, and anything quoted is quoted anonymously (&ldquo;a clinic nurse told
+  us&hellip;&rdquo;). Honest — even blunt — answers are the most useful kind.
+  <br><br>
+  <span class="hint">One honesty note: this page sends your answers by email or text from your
+  own account, so I'll see the address you send from. If you'd rather be fully anonymous, ask
+  the person who shared this for a paper copy.</span>
+  <br><br><em>— Joshua Hill · josh@vivasecuris.com</em>
+</div>
+
+<form id="qform">
+
+<div class="card">
+  <div class="row">
+    <div>
+      <strong>Your role</strong>
+      <select id="role">
+        <option value="">choose…</option>
+        <option>RN</option><option>LPN</option><option>MA</option>
+        <option>Front desk</option><option>Practice manager</option>
+        <option>Physician</option><option>NP</option><option>PA</option>
+        <option>IT / biomed</option><option>Other</option>
+      </select>
+    </div>
+    <div>
+      <strong>Setting</strong>
+      <select id="setting">
+        <option value="">choose…</option>
+        <option>primary care</option><option>specialty clinic</option>
+        <option>urgent care</option><option>hospital unit</option><option>other</option>
+      </select>
+    </div>
+    <div>
+      <strong>Years in this kind of role</strong>
+      <input type="text" id="years" inputmode="numeric" placeholder="e.g. 8">
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <p><span class="qnum">1.</span> In a normal day, which of these do you use? <span class="hint">(tap all that apply)</span></p>
+  <div id="q1">
+    <label class="opt"><input type="checkbox" value="EHR / charting">EHR / charting</label>
+    <label class="opt"><input type="checkbox" value="vitals monitors">vitals monitors</label>
+    <label class="opt"><input type="checkbox" value="lab / point-of-care devices">lab / point-of-care devices</label>
+    <label class="opt"><input type="checkbox" value="imaging">imaging</label>
+    <label class="opt"><input type="checkbox" value="phones / paging / messaging">phones / paging / messaging</label>
+    <label class="opt"><input type="checkbox" value="scheduling / front-desk systems">scheduling / front-desk systems</label>
+    <label class="opt"><input type="checkbox" value="infusion or other bedside devices">infusion or other bedside devices</label>
+  </div>
+  <input type="text" id="q1other" placeholder="other…">
+</div>
+
+<div class="card">
+  <p><span class="qnum">2.</span> Which <strong>one</strong> of those absolutely cannot fail or freeze while you're with a patient?</p>
+  <input type="text" id="q2">
+</div>
+
+<div class="card">
+  <p><span class="qnum">3.</span> In the <strong>last month</strong>, which of these have you personally run into? <span class="hint">(be honest — this never goes to your employer)</span></p>
+  <div id="q3">
+    <label class="opt"><input type="checkbox" value="slow login → waited or worked around it">A login was so slow I had to wait or find a way around it</label>
+    <label class="opt"><input type="checkbox" value="system/device froze or crashed during care">A system or device froze/crashed during patient care</label>
+    <label class="opt"><input type="checkbox" value="saw shared/borrowed login used">I saw a shared or borrowed login used to keep things moving</label>
+    <label class="opt"><input type="checkbox" value="saw a password written down">I saw a password written down somewhere handy</label>
+    <label class="opt"><input type="checkbox" value="outside vendor/tech connected remotely">An outside vendor or tech connected to a device or system remotely</label>
+    <label class="opt"><input type="checkbox" value="couldn't tell who accessed/changed something">I couldn't tell who had accessed or changed something (record, device, setting)</label>
+    <label class="opt"><input type="checkbox" value="security rule skipped as unrealistic">A security rule got skipped because it was unrealistic in the moment</label>
+    <label class="opt"><input type="checkbox" value="none of these">None of these</label>
+  </div>
+</div>
+
+<div class="card">
+  <p><span class="qnum">4. ★</span> Tell me about a time technology got in the way during patient care — what happened, and what did you do?
+  <span class="hint">Your own words here are the single most valuable thing on this page.</span></p>
+  <textarea id="q4"></textarea>
+</div>
+
+<div class="card">
+  <p><span class="qnum">5.</span> When a login or a system is slow and you're moving fast, what do you <em>actually</em> do?</p>
+  <textarea id="q5" style="min-height:64px"></textarea>
+</div>
+
+<div class="card">
+  <p><span class="qnum">6.</span> Imagine a tool that quietly watches for security and access problems in the background — <strong>without changing how you log in, chart, or care for patients.</strong> Where you work, would that be:</p>
+  <div id="q6">
+    <label class="opt"><input type="radio" name="q6" value="genuinely useful">genuinely useful</label>
+    <label class="opt"><input type="radio" name="q6" value="pointless">pointless</label>
+    <label class="opt"><input type="radio" name="q6" value="depends">depends</label>
+  </div>
+  <input type="text" id="q6why" placeholder="why?">
+</div>
+
+<div class="card">
+  <p><span class="qnum">7.</span> What would make you <strong>instantly reject</strong> a new system at work?</p>
+  <input type="text" id="q7">
+</div>
+
+<div class="card">
+  <p><span class="qnum">8.</span> What's one tech problem at work you're surprised nobody has fixed?</p>
+  <input type="text" id="q8">
+</div>
+
+<div class="card">
+  <p><strong>Optional — only if you want.</strong></p>
+  <label class="opt"><input type="checkbox" id="optTalk">I'd be open to a brief (~15 min) conversation</label>
+  <div class="row">
+    <div><input type="text" id="optName" placeholder="name (optional)"></div>
+    <div><input type="text" id="optContact" placeholder="best email or phone (optional)"></div>
+  </div>
+  <label class="opt"><input type="checkbox" id="optQuote">You may quote my written answers anonymously (e.g., &ldquo;a clinic MA&rdquo;)</label>
+  <label class="opt"><input type="checkbox" id="optAdvisor">I might be open to being an informal advisor / reference for this research</label>
+</div>
+
+<button type="button" class="primary" onclick="compile()">Finish — review &amp; send</button>
+
+</form>
+
+<div id="review" class="card">
+  <p><strong>Almost done — one more tap.</strong></p>
+  <p class="send-note">Your answers are below. Either tap <strong>Email my answers</strong>
+  (opens your mail app, pre-filled), or <strong>Copy</strong> them and paste into a text or
+  email to <strong>josh@vivasecuris.com</strong>. Nothing is sent until you send it.</p>
+  <textarea id="compiled" readonly></textarea>
+  <p>
+    <button type="button" class="secondary" onclick="copyAnswers()">Copy</button>
+    <a class="mailbtn" id="maillink" href="#">Email my answers</a>
+    <span class="copied" id="copiedMsg"></span>
+  </p>
+  <p class="send-note">Thank you — genuinely. <em>— Joshua</em></p>
+</div>
+
+<footer>Independent research by <a href="https://vivasecuris.com">VivaSecuris</a> · answers are never shared with employers</footer>
+
+</main>
+<script>
+function checked(containerId) {
+  return Array.from(document.querySelectorAll('#' + containerId + ' input:checked'))
+    .map(function (el) { return el.value; });
+}
+function val(id) { return (document.getElementById(id).value || '').trim(); }
+
+function compile() {
+  var q1 = checked('q1');
+  var q1other = val('q1other');
+  if (q1other) q1.push('other: ' + q1other);
+  var q6 = document.querySelector('input[name="q6"]:checked');
+  var optIns = [];
+  if (document.getElementById('optTalk').checked) optIns.push('open to a 15-min conversation');
+  if (document.getElementById('optQuote').checked) optIns.push('OK to quote anonymously');
+  if (document.getElementById('optAdvisor').checked) optIns.push('open to informal advisor/reference');
+  var contact = [val('optName'), val('optContact')].filter(Boolean).join(' · ');
+
+  var lines = [
+    'CLINIC TECH QUESTIONNAIRE',
+    'Role: ' + (val('role') || '—') + ' · Setting: ' + (val('setting') || '—') +
+      ' · Years: ' + (val('years') || '—'),
+    '',
+    'Q1 uses daily: ' + (q1.join('; ') || '—'),
+    'Q2 cannot fail during care: ' + (val('q2') || '—'),
+    'Q3 ran into last month: ' + (checked('q3').join('; ') || '—'),
+    'Q4 story (tech got in the way): ' + (val('q4') || '—'),
+    'Q5 what I actually do when slow: ' + (val('q5') || '—'),
+    'Q6 passive background tool: ' + (q6 ? q6.value : '—') +
+      (val('q6why') ? ' — why: ' + val('q6why') : ''),
+    'Q7 instant reject: ' + (val('q7') || '—'),
+    'Q8 surprised nobody fixed: ' + (val('q8') || '—'),
+    '',
+    'Opt-ins: ' + (optIns.join('; ') || 'none — staying anonymous'),
+    contact ? 'Contact: ' + contact : ''
+  ].filter(function (l) { return l !== ''; });
+
+  var text = lines.join('\n');
+  document.getElementById('compiled').value = text;
+  var subject = 'Clinic tech questionnaire — ' + (val('role') || 'response');
+  document.getElementById('maillink').href =
+    'mailto:josh@vivasecuris.com?subject=' + encodeURIComponent(subject) +
+    '&body=' + encodeURIComponent(text);
+  var review = document.getElementById('review');
+  review.style.display = 'block';
+  review.scrollIntoView({ behavior: 'smooth' });
+}
+
+function copyAnswers() {
+  var box = document.getElementById('compiled');
+  box.select();
+  box.setSelectionRange(0, 999999);
+  var done = function () {
+    document.getElementById('copiedMsg').textContent = 'copied ✓';
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(box.value).then(done, function () {
+      document.execCommand('copy'); done();
+    });
+  } else {
+    document.execCommand('copy'); done();
+  }
+}
+</script>
+</body>
+</html>
