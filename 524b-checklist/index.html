@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FDA 524B Cybersecurity Evidence Checklist — What Reviewers Actually Want (2026) | VivaSecuris</title>
+<meta name="description" content="The 20 technical artifacts FDA reviewers expect in a 510(k)/524B cyber device submission — threat model, SBOM, security architecture, testing evidence, postmarket plan — and the gaps that get submissions Refuse-to-Accept'd.">
+<link rel="icon" href="/favicon.ico">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 17px; line-height: 1.55; color: #1a1a1a; background: #fff; margin: 0;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 20px 60px; }
+  .kicker { color: #c41e3a; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 6px 0 8px; }
+  .sub { font-size: 1.05rem; color: #4a4a4a; margin: 0 0 18px; }
+  .lede {
+    border-left: 4px solid #c41e3a; background: #fde8ea33; padding: 12px 16px;
+    margin: 18px 0; font-size: 0.98rem;
+  }
+  h2 {
+    font-size: 1.15rem; margin: 30px 0 6px; color: #8b1528;
+    border-bottom: 2px solid #c41e3a; padding-bottom: 4px;
+  }
+  h2 .note { font-weight: 400; font-size: 0.85rem; color: #666; }
+  .progress {
+    position: sticky; top: 0; background: #fff; border-bottom: 1px solid #e0e0e0;
+    padding: 8px 0; font-weight: 600; font-size: 0.9rem; color: #8b1528; z-index: 5;
+  }
+  .item { margin: 12px 0; padding-left: 34px; position: relative; }
+  .item input[type=checkbox] {
+    position: absolute; left: 4px; top: 5px; width: 18px; height: 18px; accent-color: #c41e3a; cursor: pointer;
+  }
+  .item label { cursor: pointer; }
+  .item .what { font-weight: 600; }
+  .gap { display: block; font-size: 0.88rem; color: #8b1528; font-style: italic; margin-top: 2px; }
+  .gap::before { content: "⚠ Common gap: "; font-weight: 600; font-style: normal; }
+  .howto, .cta {
+    border: 1.5px solid #c41e3a; border-radius: 10px; padding: 16px 18px; margin: 26px 0;
+  }
+  .cta { background: #fde8ea55; }
+  .cta h3 { margin: 0 0 6px; color: #8b1528; }
+  .cta a.btn {
+    display: inline-block; background: #c41e3a; color: #fff; text-decoration: none;
+    font-weight: 600; padding: 10px 18px; border-radius: 8px; margin-top: 8px;
+  }
+  .cta a.btn:hover { background: #8b1528; }
+  .fineprint { font-size: 0.8rem; color: #666; margin-top: 34px; border-top: 1px solid #e0e0e0; padding-top: 12px; }
+  .byline { font-size: 0.9rem; color: #4a4a4a; }
+  @media print {
+    .progress { position: static; }
+    .cta a.btn { border: 1px solid #000; color: #000; background: none; }
+    body { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<p class="kicker">FDA 510(k) · Section 524B · 2026</p>
+<h1>The 524B Premarket Cybersecurity Evidence Checklist</h1>
+<p class="sub"><strong>The technical artifacts FDA reviewers actually want — and the gaps that get
+submissions Refuse-to-Accept'd.</strong></p>
+<p class="byline">By Joshua Hill · VivaSecuris</p>
+
+<div class="lede">
+Since October 2023, FDA can <strong>Refuse to Accept</strong> any premarket submission for a
+"cyber device" that's missing cybersecurity content — and under the current final guidance,
+cyber deficiencies are now one of the top reasons submissions stall across 510(k), PMA, De Novo,
+HDE, and PDP. Most teams have a cybersecurity <em>plan</em>. Far fewer have the
+<strong>evidence</strong> that makes the plan credible to a reviewer. This checklist is organized
+around the artifacts you must be able to hand over — not just the paperwork.
+<strong>If you can't check a box with something you could give a reviewer today, that's a likely
+RTA finding.</strong>
+</div>
+
+<div class="progress" id="progress">0 of 20 evidence items checked</div>
+
+<h2>A. Threat modeling &amp; security risk management</h2>
+<div class="item"><input type="checkbox" id="c1"><label for="c1"><span class="what">System-wide threat model</span> (device, interfaces, comms, cloud/companion apps) using a recognized method (e.g., STRIDE).<span class="gap">the model stops at the device and ignores interfaces, network, and the update path.</span></label></div>
+<div class="item"><input type="checkbox" id="c2"><label for="c2"><span class="what">Security risk assessment</span> linking each threat → risk → mitigating control, traceable to design inputs.<span class="gap">security risk folded into the safety risk file with no security-specific analysis or traceability.</span></label></div>
+<div class="item"><input type="checkbox" id="c3"><label for="c3"><span class="what">Security-appropriate risk scoring</span> (e.g., CVSS + exploitability + clinical impact), distinct from safety severity.<span class="gap">safety-only severity is used, so exploitability is never actually assessed.</span></label></div>
+
+<h2>B. Software Bill of Materials (SBOM)</h2>
+<div class="item"><input type="checkbox" id="c4"><label for="c4"><span class="what">Machine-readable SBOM</span> (SPDX or CycloneDX) covering commercial, open-source, and off-the-shelf components.<span class="gap">a static PDF/spreadsheet, or missing transitive dependencies.</span></label></div>
+<div class="item"><input type="checkbox" id="c5"><label for="c5"><span class="what">Support status + end-of-life / end-of-support dates</span> per component.<span class="gap">no EOL data, so reviewers can't judge long-term maintainability.</span></label></div>
+<div class="item"><input type="checkbox" id="c6"><label for="c6"><span class="what">Vulnerability assessment of SBOM components</span> (known CVEs) with a safety/security rationale for anything unresolved.<span class="gap">SBOM present, but no linked vuln analysis or justification for open CVEs.</span></label></div>
+
+<h2>C. Security architecture</h2>
+<div class="item"><input type="checkbox" id="c7"><label for="c7"><span class="what">Architecture views</span> showing trust boundaries, data flows, and interfaces (global-system, multi-patient-harm, update/patch, and security use-case views).<span class="gap">a single block diagram that never shows trust boundaries or the update path.</span></label></div>
+<div class="item"><input type="checkbox" id="c8"><label for="c8"><span class="what">Interface analysis</span> — every external/comms interface and its protections.<span class="gap">undocumented debug/maintenance interfaces (UART / JTAG / hidden services) — a classic reviewer finding.</span></label></div>
+
+<h2>D. Security testing evidence <span class="note">⟵ where submissions are actually won or lost</span></h2>
+<div class="item"><input type="checkbox" id="c9"><label for="c9"><span class="what">Security requirements testing</span> — evidence each security requirement is met (not just stated).<span class="gap">requirements are written, never verified.</span></label></div>
+<div class="item"><input type="checkbox" id="c10"><label for="c10"><span class="what">Threat-mitigation testing</span> — proof each control from the threat model actually works.<span class="gap">controls "designed in" but never tested.</span></label></div>
+<div class="item"><input type="checkbox" id="c11"><label for="c11"><span class="what">Vulnerability testing</span> — abuse/misuse cases, malformed-input/fuzz testing, static &amp; dynamic analysis, with tools and results.<span class="gap">a raw scanner report with no triage — or no fuzzing at all.</span></label></div>
+<div class="item"><input type="checkbox" id="c12"><label for="c12"><span class="what">Independent penetration test</span> with a real report: scope, methods, tester independence, findings, severities, remediation &amp; residual risk.<span class="gap">a "pen test" that's really just a vuln scan, or a report with no scope/independence.</span></label></div>
+<div class="item"><input type="checkbox" id="c13"><label for="c13"><span class="what">Firmware / runtime / protocol analysis</span> appropriate to the device: secure boot, key &amp; credential handling, comms security, memory protections.<span class="gap">black-box testing only — no firmware-level evidence, which is exactly where the real vulnerabilities live.</span></label></div>
+
+<h2>E. Postmarket monitoring &amp; vulnerability management</h2>
+<div class="item"><input type="checkbox" id="c14"><label for="c14"><span class="what">Postmarket monitoring plan</span> — how you find new vulnerabilities in your device <em>and its components</em> across its lifecycle, with an owner.<span class="gap">a policy statement with no operational process behind it.</span></label></div>
+<div class="item"><input type="checkbox" id="c15"><label for="c15"><span class="what">Coordinated Vulnerability Disclosure (CVD) process</span> (ISO/IEC 29147 &amp; 30111) with an intake path researchers can actually use.<span class="gap">no public disclosure channel — so a researcher's first "report" is a public tweet.</span></label></div>
+<div class="item"><input type="checkbox" id="c16"><label for="c16"><span class="what">Patch/update plan</span> — scheduled cadence + out-of-cycle timelines for critical vulns, plus how updates are delivered and validated.<span class="gap">no committed timelines and no evidence the update mechanism works.</span></label></div>
+<div class="item"><input type="checkbox" id="c17"><label for="c17"><span class="what">SBOM maintenance</span> across the lifecycle.<span class="gap">the SBOM is a one-time submission artifact that's never updated.</span></label></div>
+
+<h2>F. Security labeling &amp; documentation</h2>
+<div class="item"><input type="checkbox" id="c18"><label for="c18"><span class="what">Security labeling for users/operators</span> — hardening guidance, network/port info, backup/restore, EOL.<span class="gap">no security labeling, or it's buried and non-actionable.</span></label></div>
+<div class="item"><input type="checkbox" id="c19"><label for="c19"><span class="what">Cybersecurity summary</span> tying all of the above together and mapping it to the 524B elements for the reviewer.<span class="gap">the artifacts exist but are scattered, so the reviewer can't map them to the requirements.</span></label></div>
+<div class="item"><input type="checkbox" id="c20"><label for="c20"><span class="what">Evidence traceability</span> — every claim in the cyber section backed by a named artifact a reviewer can request.<span class="gap">claims in the summary that no artifact actually supports.</span></label></div>
+
+<div class="howto">
+<strong>How to use this:</strong> if you can confidently check <strong>every</strong> box with an
+artifact you could hand a reviewer today, you're submission-ready on cybersecurity. Every
+unchecked box is a likely RTA finding — cheaper to fix before you file than after. (Your checks
+save in this browser; print this page for your submission binder.)
+</div>
+
+<div class="cta">
+<h3>Where the hard boxes get checked</h3>
+<p>Sections <strong>A–D</strong> — threat modeling, SBOM vulnerability analysis, and especially the
+<strong>security testing and firmware / runtime / protocol evidence</strong> — are the ones
+consultants can't produce and scanners can't fake. That's what VivaSecuris does: we're the
+<strong>technical evidence layer</strong> under your regulatory plan, generating the artifacts FDA
+reviewers accept — on your 524B clock. Subcontract or white-label to your regulatory partner;
+one product line first.</p>
+<a class="btn" href="mailto:josh@vivasecuris.com?subject=524B%20evidence%20—%20scoping%20call">Request a scoping call</a>
+</div>
+
+<p class="fineprint">
+Current to FDA's final guidance "Cybersecurity in Medical Devices: Quality System Considerations
+and Content of Premarket Submissions" (2025 final, updated 2026) and FD&amp;C Act §524B. This is
+technical guidance to help you assemble evidence — not legal or regulatory advice. Verify against
+the current FDA guidance for your specific submission.<br>
+© 2026 VivaSecuris · <a href="https://vivasecuris.com">vivasecuris.com</a>
+</p>
+
+</main>
+<script>
+(function () {
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('input[type=checkbox]'));
+  var progress = document.getElementById('progress');
+  var KEY = 'vs524b';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+  boxes.forEach(function (b) {
+    if (saved[b.id]) b.checked = true;
+    b.addEventListener('change', function () {
+      saved[b.id] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      update();
+    });
+  });
+  function update() {
+    var n = boxes.filter(function (b) { return b.checked; }).length;
+    progress.textContent = n + ' of ' + boxes.length + ' evidence items checked' +
+      (n === boxes.length ? ' — submission-ready on cyber. Nice.' : '');
+  }
+  update();
+})();
+</script>
+</body>
+</html>
