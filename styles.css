@@ -310,68 +310,68 @@ body {
 .blog-post-meta a {
     color: var(--primary-color);
     text-decoration: none;
+    margin-top: 0.85em;
+    color: var(--text-light);
+    font-size: 0.95em;
+    line-height: 1.65;
 }
 
-.blog-post-meta a:hover {
-    text-decoration: underline;
+.blog-figure--wide {
+    margin-top: 2.4em;
 }
 
-.blog-article-lead {
-    font-size: 1.25em;
-    line-height: 1.7;
-    color: var(--text-dark);
-    margin-bottom: 1.2em;
+.blog-story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 1.75em 0 2em;
 }
 
-.blog-article h2 {
-    font-size: 1.5em;
+.blog-story-card,
+.blog-process-card,
+.blog-callout {
+    background: var(--bg-light);
+    border: 1px solid #e8e8e8;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.blog-story-card h3,
+.blog-process-card h3,
+.blog-callout h3 {
+    margin-top: 0;
+}
+
+.blog-story-card p:last-child,
+.blog-process-card p:last-child,
+.blog-callout p:last-child {
+    margin-bottom: 0;
+}
+
+.blog-process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 1.75em 0 2em;
+}
+
+.blog-process-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 0.8em;
+    border-radius: 999px;
+    background: var(--primary-gradient);
+    color: #fff;
     font-weight: 700;
-    color: var(--text-dark);
-    margin: 2em 0 0.75em;
-    padding-bottom: 0.25em;
-    border-bottom: 1px solid #e8e8e8;
+    line-height: 1;
 }
 
-.blog-article h2:first-of-type {
-    margin-top: 1.5em;
-}
-
-.blog-article h3 {
-    font-size: 1.2em;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin: 1.5em 0 0.5em;
-}
-
-.blog-article p {
-    margin: 0 0 1em;
-    line-height: 1.75;
-}
-
-.blog-article ul {
-    margin: 0 0 1em 1.5em;
-    padding: 0;
-    line-height: 1.75;
-}
-
-.blog-article li {
-    margin-bottom: 0.35em;
-}
-
-.blog-back {
-    margin-top: 3em;
-    padding-top: 1.5em;
-    border-top: 1px solid #e8e8e8;
-}
-
-.blog-back a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.blog-back a:hover {
-    text-decoration: underline;
+.blog-callout {
+    margin: 2em 0;
+    border-left: 4px solid var(--primary-color);
 }
 
 /* Buttons */
@@ -646,6 +646,7 @@ body {
     font-weight: 600;
     text-decoration: none;
 }
+
 
 .platform-teaser a:hover {
     text-decoration: underline;

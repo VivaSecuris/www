@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Trust, Explained | VivaSecuris</title>
+    <meta name="description" content="What zero-trust networking actually means, why the perimeter model failed, and how SecurisNexus issues cryptographic identity, enforces default-deny access, and produces tamper-evident evidence.">
+    <link rel="canonical" href="https://vivasecuris.com/zero-trust.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vivasecuris.com/zero-trust.html">
+    <meta property="og:title" content="Zero Trust, Explained | VivaSecuris">
+    <meta property="og:description" content="Why the perimeter model failed, and how SecurisNexus gives every workload a cryptographic identity with default-deny access and tamper-evident evidence.">
+    <meta property="og:image" content="https://vivasecuris.com/images/vivalogoraw.png">
+    <meta property="og:site_name" content="VivaSecuris">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Zero Trust, Explained | VivaSecuris">
+    <meta name="twitter:description" content="Identity as the perimeter, default deny, and evidence you can prove.">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <img src="images/vivalogoraw.png" alt="" class="logo-img" aria-hidden="true">
+                    <span class="logo-text">VivaSecuris</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html#problem">Problem</a></li>
+                <li><a href="index.html#solutions">Solutions</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Zero Trust, Explained</h1>
+            <p class="hero-subtitle">The network is not a safe place. It never was. Here is what to do about it &mdash; and how SecurisNexus does it.</p>
+        </div>
+    </section>
+
+    <!-- The old model -->
+    <section class="section problem-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The perimeter model failed</h2>
+            </div>
+
+            <p class="blog-intro">For thirty years, network security worked like a castle. You built a
+            wall, you put a gate in it, and you decided that everything inside the wall was friendly.
+            Firewalls, VPNs, and network zones all share that assumption: <em>location implies trust</em>.
+            If you are on the inside, you are trusted.</p>
+
+            <p class="blog-intro">That assumption breaks the moment anything gets inside &mdash; and
+            something always does. A phished credential. A contractor's laptop. A vendor's remote-support
+            tool. An unpatchable device with a decade-old operating system. Once an attacker is inside the
+            wall, the flat, trusting interior is not a defense. It is an accelerant.</p>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="card-icon" aria-hidden="true">&#9888;</div>
+                    <h3>Trust by location</h3>
+                    <p>Being on the network is treated as proof of belonging. It proves only that you found a way in.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="card-icon" aria-hidden="true">&#8596;</div>
+                    <h3>Lateral movement</h3>
+                    <p>One compromised host can reach everything its network segment can reach. Blast radius is the whole zone.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="card-icon" aria-hidden="true">&#128274;</div>
+                    <h3>Shared secrets</h3>
+                    <p>Static passwords and long-lived API keys get copied, reused, committed to repositories, and never expire.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="card-icon" aria-hidden="true">&#128065;</div>
+                    <h3>No provable record</h3>
+                    <p>Logs can be edited or deleted. After an incident, you cannot prove what happened &mdash; only assert it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What zero trust means -->
+    <section class="section approach-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What zero trust actually means</h2>
+            </div>
+
+            <p class="blog-intro">Zero trust is not a product you install. It is a design rule:
+            <strong>never infer trust from position on a network.</strong> Every request &mdash; from a
+            person, a service, a device &mdash; must prove who it is and be authorized for that specific
+            action, every time. Nothing is trusted because of where it sits.</p>
+
+            <div class="approach-principles">
+                <ul class="blog-list">
+                    <li><strong>Identity is the perimeter.</strong> The unit of trust is a cryptographic identity, not an IP address, subnet, or VLAN.</li>
+                    <li><strong>Verify explicitly, every time.</strong> Authentication is per-request, not per-session-forever. Both sides prove who they are.</li>
+                    <li><strong>Least privilege, narrowly scoped.</strong> Access is granted to one resource for one purpose for a short time &mdash; not to a zone indefinitely.</li>
+                    <li><strong>Default deny.</strong> Absence of an explicit allow is a denial. Fail closed, not open.</li>
+                    <li><strong>Assume breach.</strong> Design as though an attacker is already inside, because eventually they are. Contain instead of hoping to exclude.</li>
+                </ul>
+            </div>
+
+            <div class="blog-callout">
+                <p><strong>The practical test:</strong> if an attacker obtained a foothold on your network
+                right now, how much would that actually get them? Under the perimeter model, often
+                everything. Under zero trust, one narrowly-scoped identity and a permanent record of what
+                it touched.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How SecurisNexus works -->
+    <section class="section solutions-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How SecurisNexus implements it</h2>
+                <p>SecurisNexus is the identity, policy, and evidence authority for the VivaOS platform.
+                It answers three questions continuously: <em>who is this, what may they do, and what
+                actually happened.</em></p>
+            </div>
+
+            <div class="blog-process-grid">
+                <div class="blog-process-card">
+                    <div class="blog-process-number">1</div>
+                    <h3>Every workload gets an identity</h3>
+                    <p>Services, devices, agents, and people each receive their own short-lived X.509
+                    certificate carrying a SPIFFE-style identifier. Identity is issued, attested, and
+                    expiring &mdash; not a password someone can copy. There is no shared service account
+                    to steal.</p>
+                </div>
+                <div class="blog-process-card">
+                    <div class="blog-process-number">2</div>
+                    <h3>A layered certificate authority</h3>
+                    <p>Trust descends through a hierarchy: a root that stays <strong>offline and archived
+                    after issuance</strong>, an intermediate that signs per-tenant authorities, and leaf
+                    certificates issued to individual workloads. Compromising a leaf does not compromise
+                    the tenant. The root is not reachable from the network at all.</p>
+                </div>
+                <div class="blog-process-card">
+                    <div class="blog-process-number">3</div>
+                    <h3>Mutual TLS, not just TLS</h3>
+                    <p>Ordinary HTTPS proves the <em>server</em> is genuine. Here both ends present
+                    certificates and both verify the other. A caller without a valid issued identity
+                    cannot complete the handshake &mdash; it is refused before any request is processed.</p>
+                </div>
+                <div class="blog-process-card">
+                    <div class="blog-process-number">4</div>
+                    <h3>Tiered, time-boxed authorization</h3>
+                    <p>Identifying yourself earns the right to <em>ask</em>. An authorization decision
+                    earns narrow access to one specific resource, for a short window, scoped to the exact
+                    caller. Everything else stays closed by default. Access expires on its own rather than
+                    relying on someone to revoke it.</p>
+                </div>
+                <div class="blog-process-card">
+                    <div class="blog-process-number">5</div>
+                    <h3>Policy that fails closed</h3>
+                    <p>Authorization rules are signed configuration evaluated by the control plane. If no
+                    rule permits an action, it is denied &mdash; including when policy is missing,
+                    unreadable, or malformed. Misconfiguration produces a refusal, never accidental
+                    permission.</p>
+                </div>
+                <div class="blog-process-card">
+                    <div class="blog-process-number">6</div>
+                    <h3>Evidence you can prove</h3>
+                    <p>Every issuance, session, decision, and denial is appended to a hash-chained ledger
+                    with Merkle inclusion proofs. Any single event can be cryptographically proven to be in
+                    the record, and the record cannot be altered after the fact without detection. This is
+                    the property people usually reach for a blockchain to get &mdash; without needing a
+                    distributed consensus network.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why healthcare -->
+    <section class="section evidence-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why this matters most in medicine</h2>
+            </div>
+
+            <p class="blog-intro">Clinical environments are where conventional security breaks hardest,
+            because the usual remedies are unavailable. You cannot reboot an infusion pump mid-therapy.
+            You cannot force a password rotation during a code. You cannot patch a twelve-year-old imaging
+            device whose vendor certification would be voided by the update. And when security tools get
+            in the way of care, staff route around them &mdash; correctly, because the patient comes
+            first.</p>
+
+            <div class="evidence-features">
+                <div class="evidence-feature">
+                    <h3>Availability outranks policy</h3>
+                    <p>Care cannot pause for security. Controls that can block a clinical workflow are
+                    controls that will be disabled or bypassed.</p>
+                </div>
+                <div class="evidence-feature">
+                    <h3>Patching is often impossible</h3>
+                    <p>Long device lifecycles and regulatory certification mean "just update it" frequently
+                    is not an option. Security has to work around that, not require it.</p>
+                </div>
+                <div class="evidence-feature">
+                    <h3>Vendor access is routine</h3>
+                    <p>Outside technicians connect to devices regularly, often after hours, frequently
+                    unobserved. Identity and a durable record matter more here than anywhere.</p>
+                </div>
+                <div class="evidence-feature">
+                    <h3>Evidence is now required</h3>
+                    <p>Regulators increasingly expect device makers and providers to produce real technical
+                    evidence, not attestations. A provable record is the deliverable.</p>
+                </div>
+            </div>
+
+            <div class="blog-callout">
+                <p><strong>Our design rule:</strong> observe before enforcing. Security that becomes a
+                patient-safety risk has already failed, so we begin passively &mdash; establishing
+                identity, context, and evidence &mdash; and never insert ourselves as a new way for care
+                to break.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What it is not -->
+    <section class="section deployment-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What zero trust is not</h2>
+            </div>
+            <div class="deployment-principles">
+                <ul class="blog-list">
+                    <li><strong>Not a VPN.</strong> A VPN moves the wall; it still grants network-level trust once you are through it.</li>
+                    <li><strong>Not a firewall product.</strong> Firewalls filter addresses and ports. Zero trust decides about <em>identities and actions</em>.</li>
+                    <li><strong>Not a blockchain.</strong> Tamper-evidence comes from hash chaining and Merkle proofs. No distributed ledger, no consensus network, no token.</li>
+                    <li><strong>Not a single purchase.</strong> It is an architecture. Anything sold as "zero trust in a box" is a component at best.</li>
+                    <li><strong>Not friction for its own sake.</strong> Done properly it removes shared passwords and standing access, which is usually <em>less</em> friction, not more.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission close -->
+    <section class="section mission-section">
+        <div class="container container--narrow">
+            <h2 class="mission-title">Security should be like a spoon</h2>
+            <p>Obvious in purpose, requiring no training, and never in the way of the task. The strongest
+            security is the kind nobody has to think about &mdash; identity that issues itself, access that
+            expires on its own, and a record that can be proven rather than asserted.</p>
+            <p><a href="index.html#contact" class="btn btn-primary">Get in touch</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Site</h4>
+                        <ul>
+                            <li><a href="index.html#problem">Problem</a></li>
+                            <li><a href="index.html#solutions">Solutions</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="zero-trust.html">Zero Trust Explained</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 VivaSecuris. All rights reserved.</p>
+                <p class="footer-tagline">Protecting life-critical systems. Saving lives.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
