@@ -69,28 +69,76 @@
             tool. An unpatchable device with a decade-old operating system. Once an attacker is inside the
             wall, the flat, trusting interior is not a defense. It is an accelerant.</p>
 
+            <h3 class="section-subhead">How it actually goes</h3>
+
+            <p>It rarely looks like an attack at the start. A scheduling clerk gets a message that
+            looks like a password reset from the records vendor, and types their credentials into a
+            convincing copy of the login page. Nothing breaks. No alarm sounds. The attacker now holds
+            a working account and a VPN on which to use it.</p>
+
+            <p>From there the network does most of the work. The VPN delivers them onto a flat clinical
+            segment, because fully segmenting a hospital network is a project almost nobody has
+            finished. They look around. They find an ultrasound cart running an operating system that
+            left support years ago, because the manufacturer will not certify a patched version. They
+            find a workstation with a vendor service account whose password appears in an installation
+            manual &mdash; the same password that vendor uses at every site it supports. That account
+            has administrative rights, because it needed them once during commissioning and nobody
+            narrowed it afterwards.</p>
+
+            <p>Weeks pass before anyone notices. By then the intruder has been through imaging,
+            scheduling, and the share where backup indexes live. And when the incident team finally
+            asks the only question that matters &mdash; <em>what did they actually touch?</em> &mdash;
+            nobody can answer it. The logs live on the same machines that were compromised, and
+            anything holding administrative rights can rewrite them.</p>
+
+            <p>No step in that story required a sophisticated exploit. Every step used the network
+            exactly as it was designed to be used. That is the point: the perimeter model did not fail
+            because it was implemented badly. It failed because it was implemented correctly, and its
+            central assumption is wrong.</p>
+
+            <p class="grid-lead">Four assumptions did the damage:</p>
+
             <div class="problem-grid">
                 <div class="problem-card">
-                    <div class="card-icon" aria-hidden="true">&#9888;</div>
+                    <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
                     <h3>Trust by location</h3>
                     <p>Being on the network is treated as proof of belonging. It proves only that you found a way in.</p>
                 </div>
                 <div class="problem-card">
-                    <div class="card-icon" aria-hidden="true">&#8596;</div>
+                    <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5.5" cy="5.5" r="2.6"/><circle cx="18.5" cy="5.5" r="2.6"/><circle cx="5.5" cy="18.5" r="2.6"/><circle cx="18.5" cy="18.5" r="2.6"/><path d="M8.1 5.5h7.8M8.1 18.5h7.8M5.5 8.1v7.8M18.5 8.1v7.8M7.6 7.6l8.8 8.8"/></svg></div>
                     <h3>Lateral movement</h3>
                     <p>One compromised host can reach everything its network segment can reach. Blast radius is the whole zone.</p>
                 </div>
                 <div class="problem-card">
-                    <div class="card-icon" aria-hidden="true">&#128274;</div>
+                    <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="14.5" r="3.8"/><path d="m10.7 11.8 8.3-8.3"/><path d="m16.2 6.3 2 2"/><path d="m19 3.5 1.9 1.9"/></svg></div>
                     <h3>Shared secrets</h3>
                     <p>Static passwords and long-lived API keys get copied, reused, committed to repositories, and never expire.</p>
                 </div>
                 <div class="problem-card">
-                    <div class="card-icon" aria-hidden="true">&#128065;</div>
+                    <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.5Z"/><path d="M14.5 3v4.5H19"/><path d="m9.2 12.8 5.6 5.6M14.8 12.8l-5.6 5.6"/></svg></div>
                     <h3>No provable record</h3>
                     <p>Logs can be edited or deleted. After an incident, you cannot prove what happened &mdash; only assert it.</p>
                 </div>
             </div>
+
+            <h3 class="section-subhead">Why it is still built this way</h3>
+
+            <p>Not because anyone believes it is safe. The perimeter was a sound design when everything
+            it protected sat in one building, on cables the organisation owned, used by people it
+            employed. That building dissolved. Clinicians work from home, devices phone home to
+            manufacturers, vendors support equipment remotely, and workloads moved to somebody else's
+            datacentre &mdash; but the security model stayed where it was.</p>
+
+            <p>Replacing it is genuinely hard, and in medicine it is harder than anywhere else.
+            Re-segmenting a live clinical network is a project with real patient-safety risk, an
+            unglamorous budget line, and no visible reward when it works. Devices cannot simply be
+            upgraded out of the problem. And every control that can interrupt care will eventually be
+            switched off by someone who is right to switch it off, because the patient in front of
+            them outranks the policy.</p>
+
+            <p>So the honest framing is not that hospitals have been careless. It is that they are
+            running a model built for a world that no longer exists, and that the usual remedies are
+            unavailable to them. Any approach worth proposing has to start there.</p>
         </div>
     </section>
 
@@ -155,9 +203,11 @@
                 <div class="blog-process-card">
                     <div class="blog-process-number">3</div>
                     <h3>Mutual TLS, not just TLS</h3>
-                    <p>Ordinary HTTPS proves the <em>server</em> is genuine. Here both ends present
-                    certificates and both verify the other. A caller without a valid issued identity
-                    cannot complete the handshake &mdash; it is refused before any request is processed.</p>
+                    <p>Ordinary HTTPS proves the <em>server</em> is genuine. On the authorization and
+                    policy hops, both ends present certificates and both verify the other: a caller
+                    without a valid issued identity cannot complete the handshake, and is refused
+                    before any request is processed. The certificate bootstrap service is the
+                    exception &mdash; it uses server-TLS with token authentication.</p>
                 </div>
                 <div class="blog-process-card">
                     <div class="blog-process-number">4</div>
@@ -178,7 +228,7 @@
                 <div class="blog-process-card">
                     <div class="blog-process-number">6</div>
                     <h3>Evidence you can prove</h3>
-                    <p>Every issuance, session, decision, and denial is appended to a hash-chained ledger
+                    <p>Issuance, session, decision, and denial events are appended to a hash-chained ledger
                     with Merkle inclusion proofs. Any single event can be cryptographically proven to be in
                     the record, and the record cannot be altered after the fact without detection. This is
                     the property people usually reach for a blockchain to get &mdash; without needing a
@@ -280,6 +330,7 @@
                         <h4>Resources</h4>
                         <ul>
                             <li><a href="zero-trust.html">Zero Trust Explained</a></li>
+                            <li><a href="zero-trust-healthcare-access.html">Zero Trust in Healthcare</a></li>
                             <li><a href="index.html#contact">Contact</a></li>
                         </ul>
                     </div>
