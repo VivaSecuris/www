@@ -300,6 +300,18 @@ body {
     color: var(--primary-color);
 }
 
+.blog-post-more {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.blog-post-more:hover {
+    text-decoration: underline;
+}
+
 /* Blog post page */
 .blog-post-meta {
     font-size: 0.95em;
@@ -310,6 +322,84 @@ body {
 .blog-post-meta a {
     color: var(--primary-color);
     text-decoration: none;
+}
+
+.blog-post-meta a:hover {
+    text-decoration: underline;
+}
+
+/* On the crimson hero the grey/crimson pair above is unreadable */
+.hero .blog-post-meta,
+.hero .blog-post-meta a {
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.hero .blog-post-meta a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.blog-article-lead {
+    font-size: 1.25em;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 1.2em;
+}
+
+.blog-article h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 2em 0 0.75em;
+    padding-bottom: 0.25em;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.blog-article h2:first-of-type {
+    margin-top: 1.5em;
+}
+
+.blog-article h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 1.5em 0 0.5em;
+}
+
+.blog-article p {
+    margin: 0 0 1em;
+    line-height: 1.75;
+}
+
+.blog-article ul {
+    margin: 0 0 1em 1.5em;
+    padding: 0;
+    line-height: 1.75;
+}
+
+.blog-article li {
+    margin-bottom: 0.35em;
+}
+
+.blog-back {
+    margin-top: 3em;
+    padding-top: 1.5em;
+    border-top: 1px solid #e8e8e8;
+}
+
+.blog-back a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.blog-back a:hover {
+    text-decoration: underline;
+}
+
+.blog-figure figcaption {
     margin-top: 0.85em;
     color: var(--text-light);
     font-size: 0.95em;
@@ -1563,7 +1653,7 @@ html {
 /* ---------------------------------------------------------------
    Long-form article pages (zero-trust-healthcare-access.html)
    --------------------------------------------------------------- */
-.article-hero { padding: 90px 0 70px; text-align: center; }
+.article-hero { padding: 120px 0 70px; text-align: center; }
 .article-hero .hero-title { max-width: 900px; margin: 0 auto 18px; }
 .article-hero .hero-subtitle {
     max-width: 680px; margin: 0 auto; font-size: 1.12em;
@@ -1581,6 +1671,10 @@ html {
 }
 
 .article-section.approach-section > .container > p { color: rgba(255, 255, 255, 0.93); }
+.article-section.approach-section > .container > p.blog-back {
+    margin-top: 2.4em; border-top-color: rgba(255, 255, 255, 0.35);
+}
+.article-section.approach-section .blog-back a { color: #fff; }
 .article-section .section-header { margin-bottom: 34px; }
 
 .article-lede { padding-top: 70px; padding-bottom: 10px; background: var(--bg-white); }
