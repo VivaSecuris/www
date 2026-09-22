@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why FDA Refuses to Accept Cyber Device Submissions, and the Evidence That Prevents It | VivaSecuris</title>
+    <meta name="description" content="FDA can refuse to accept a cyber device submission on cybersecurity alone. What reviewers look for under 524B, what sinks it, and the evidence that answers.">
+    <link rel="canonical" href="https://vivasecuris.com/524b-refuse-to-accept.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vivasecuris.com/524b-refuse-to-accept.html">
+    <meta property="og:title" content="Why FDA Refuses to Accept Cyber Device Submissions, and the Evidence That Prevents It | VivaSecuris">
+    <meta property="og:description" content="FDA can refuse to accept a cyber device submission on cybersecurity alone. What reviewers look for under 524B, what sinks it, and the evidence that answers.">
+    <meta property="og:image" content="https://vivasecuris.com/images/vivalogoraw.png">
+    <meta property="og:site_name" content="VivaSecuris">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Why FDA Refuses to Accept Cyber Device Submissions">
+    <meta name="twitter:description" content="Five ways a 524B cybersecurity section fails review, followed through one cardiac monitor&#x27;s 510(k).">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <img src="images/vivalogoraw.png" alt="" class="logo-img" aria-hidden="true">
+                    <span class="logo-text">VivaSecuris</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html#problem">Problem</a></li>
+                <li><a href="index.html#solutions">Solutions</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero article-hero">
+      <div class="container">
+        <p class="blog-post-meta"><a href="blog.html">Blog</a> · <time datetime="2026-09-23">September 23, 2026</time></p>
+        <h1 class="hero-title">Why FDA Refuses to Accept Cyber Device Submissions, and the Evidence That Prevents It</h1>
+        <p class="hero-subtitle">Five places a cybersecurity section fails review, followed through one cardiac monitor&#x27;s 510(k), and what answers each</p>
+      </div>
+    </section>
+    <section class="section article-section article-lede">
+      <div class="container">
+        <p class="lede">A wearable cardiac monitor: a patch that records the heart, a phone app that reads it over Bluetooth Low Energy, and a cloud service the clinic signs into. The 510(k) is due next quarter. The regulatory lead has a cybersecurity plan from the consultancy, a threat model, a block diagram, a software bill of materials in a spreadsheet, and a scan report from the last sprint. Every one of them describes the device as designed. The reviewer&#x27;s questions are about the device as built.</p>
+        <p>Since October 2023, FDA may refuse to accept a premarket submission for a cyber device on its cybersecurity content alone.<sup class="cite"><a href="#ref2">[2]</a></sup> The requirement comes from section 524B of the Federal Food, Drug, and Cosmetic Act,<sup class="cite"><a href="#ref1">[1]</a></sup> and the guidance that says what the submission should contain was reissued on February 3, 2026.<sup class="cite"><a href="#ref3">[3]</a></sup> This article is not regulatory advice, and the consultancy that wrote the plan should keep owning it. It is the view from the bench where the technical evidence underneath the plan gets made.</p>
+        <p>The full list of artifacts a reviewer expects is in our <a href="524b-checklist/">524B evidence checklist</a>. This article follows the five that decide the outcome, starting with why the section can now end the review before it begins.</p>
+      </div>
+    </section>
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">Since October 2023, the cybersecurity section can end the review before it starts</h2></div>
+        <p>The monitor is a cyber device three times over. The statute defines one as a device that includes software, can connect to the internet, and has characteristics that could be vulnerable to cybersecurity threats.<sup class="cite"><a href="#ref1">[1]</a></sup> FDA&#x27;s illustrative list of what counts as connecting includes cloud services, radio such as Bluetooth Low Energy, and hardware connectors such as USB and serial ports.<sup class="cite"><a href="#ref3">[3]</a></sup></p>
+        <p>For a cyber device, section 524B(b) asks the sponsor for three things: a plan to monitor, identify, and address postmarket vulnerabilities, including coordinated disclosure; processes that give reasonable assurance the device is cybersecure, with patches on a regular cycle and out of cycle for critical vulnerabilities; and a software bill of materials covering commercial, open-source, and off-the-shelf components.<sup class="cite"><a href="#ref1">[1]</a></sup></p>
+        <p>The teeth arrived on a date. FDA&#x27;s refuse-to-accept policy states that &quot;beginning October 1, 2023, FDA expects that such sponsors will have had sufficient time to prepare premarket submissions that contain information required by section 524B of the FD&amp;C Act, and FDA may RTA premarket submissions that do not.&quot;<sup class="cite"><a href="#ref2">[2]</a></sup> A refusal is not a deficiency letter. The submission is not under review at all until the content is there.</p>
+        <p>The guidance describing that content was reissued on February 3, 2026, to align with the Quality Management System Regulation. The technical expectations did not change, but the file now has to trace to a controlled quality process rather than sit beside it.<sup class="cite"><a href="#ref3">[3]</a></sup> On testing, the guidance is direct: cybersecurity controls &quot;require testing beyond standard software verification and validation activities to demonstrate the effectiveness of the controls in a proper security context.&quot;<sup class="cite"><a href="#ref3">[3]</a></sup></p>
+        <div class="blog-callout lifecycle"><p><strong>Requirement → Artifact FDA expects → Deficiency that sinks it → Evidence that answers it</strong></p></div>
+        <p>That is the reading order for the five sections that follow. Start with the report most teams already have and believe is enough.</p>
+      </div>
+    </section>
+    <section class="section article-section problem-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">The penetration test that cannot say who did it, how, or for how long</h2></div>
+        <p>The scan report from the last sprint is what the monitor&#x27;s file calls its penetration test. It lists open ports and known vulnerabilities by version number, and it was produced by the engineers who wrote the firmware, in an afternoon.</p>
+        <p><strong>Artifact.</strong> The guidance asks that penetration testing &quot;focus on discovering and exploiting security vulnerabilities in the product,&quot; and that the report include five elements: &quot;independence and technical expertise of testers; scope of testing; duration of testing; testing methods employed; and test results, findings, and observations.&quot;<sup class="cite"><a href="#ref3">[3]</a></sup> It asks for the original third-party report where one exists, and, for all testing, the manufacturer&#x27;s &quot;assessment of any findings including rationales for not implementing or deferring any findings to future releases.&quot;<sup class="cite"><a href="#ref3">[3]</a></sup></p>
+        <p><strong>Deficiency.</strong> A scan discovers. It does not exploit, so it says nothing about what an attacker can do with what it found. A report without the five elements cannot be weighed, and findings with no disposition leave the reviewer to guess whether they were fixed, deferred, or missed.</p>
+        <p><strong>Evidence.</strong> A report written to the five elements, by testers who can state their independence from the developers, with a path for each finding that shows what was reached and how, and the manufacturer&#x27;s disposition of every finding in the risk file. The guidance gives the reason exploitation matters: &quot;if a penetration tester, for example, was able to exploit a vulnerability, the ability of a threat actor to exploit that vulnerability is likely to increase over the device lifecycle.&quot;<sup class="cite"><a href="#ref3">[3]</a></sup></p>
+        <p>A good penetration test finds what an attacker finds. The next deficiency is about proving what the design was supposed to stop.</p>
+      </div>
+    </section>
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">Controls that were designed in and never shown to work</h2></div>
+        <p>The monitor&#x27;s threat model is good. It names Bluetooth Low Energy pairing as the control against a rogue phone and a signed update image as the control against tampered firmware. The test folder holds no test in which an unpaired phone tries to connect, and none in which the device is offered an image with a bad signature.</p>
+        <p><strong>Artifact.</strong> Two of the testing types the guidance names are about exactly this. For security requirements, manufacturers &quot;should provide evidence that each design input requirement was implemented successfully,&quot; along with &quot;evidence of their boundary analysis and rationale for their boundary assumptions.&quot;<sup class="cite"><a href="#ref3">[3]</a></sup> For threat mitigation, they &quot;should provide details and evidence of testing that demonstrates effective risk control measures according to the threat models provided in the global system, multi-patient harm, updatability and patchability, and security use case views.&quot;<sup class="cite"><a href="#ref3">[3]</a></sup></p>
+        <p><strong>Deficiency.</strong> A control that appears in the threat model and nowhere in the test record is a claim. The reviewer has the design input and the assertion that it was met, and nothing in between.</p>
+        <p><strong>Evidence.</strong> One test per control, each attempting the thing the control exists to stop and recording what the device did: the unpaired phone refused, the unsigned image rejected. The guidance&#x27;s vulnerability-testing list adds what a thorough file also carries: &quot;abuse or misuse cases, malformed and unexpected inputs,&quot; fuzz testing, and vulnerability chaining, with the tools and results documented.<sup class="cite"><a href="#ref3">[3]</a></sup></p>
+        <p>Both of those test what the team knew to look for. The third is about what nobody on the team knew was there.</p>
+      </div>
+    </section>
+    <section class="section article-section problem-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">The interfaces the diagram does not show</h2></div>
+        <p>The block diagram has three boxes: patch, phone, cloud. The board has a serial header the contract manufacturer uses to load firmware. The firmware has a maintenance service, left from development, that answers on a fixed credential. Neither is in the diagram, so neither is in the threat model, so neither was tested.</p>
+        <p><strong>Artifact.</strong> The guidance asks for at least four security architecture views: a global system view, a multi-patient harm view, an updateability and patchability view, and security use case views. They should &quot;identify security-relevant medical device system elements and their interfaces&quot; and &quot;define security context, domains, boundaries, critical user roles, and external interfaces of the medical device system.&quot;<sup class="cite"><a href="#ref3">[3]</a></sup> Among the testing it expects are &quot;attack surface analysis,&quot; &quot;software composition analysis of binary executable files,&quot; and &quot;static and dynamic code analysis, including testing for credentials that are &#x27;hardcoded,&#x27; default, easily guessed, and easily compromised.&quot;<sup class="cite"><a href="#ref3">[3]</a></sup></p>
+        <p><strong>Deficiency.</strong> The views describe the interfaces the design team drew. A serial port is, in FDA&#x27;s own list, a way of connecting to the internet.<sup class="cite"><a href="#ref3">[3]</a></sup> An interface the views omit is one the threat model never considered and the tests never touched, and a fixed credential in the image is a finding the guidance names outright.</p>
+        <p><strong>Evidence.</strong> An interface list built from the device rather than the drawing: the firmware image taken apart and every service, port, and credential it exposes enumerated; the board examined for the connectors it carries; and the architecture views corrected to match, so the threat model and the tests cover what ships.</p>
+        <p>What is in the firmware also decides whether the software bill of materials is true.</p>
+      </div>
+    </section>
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">A software bill of materials that is a spreadsheet</h2></div>
+        <p>The monitor&#x27;s SBOM is a spreadsheet with forty rows: the operating system, the Bluetooth stack, a TLS library, the app framework, each with a version typed in by hand. It is what the team knows it chose. It is not what the build produced.</p>
+        <p><strong>Artifact.</strong> Section 524B(b)(3) makes the SBOM a statutory requirement.<sup class="cite"><a href="#ref1">[1]</a></sup> The guidance asks for one consistent with the NTIA minimum elements, in an industry-accepted format, with two things more per component: its &quot;level of support&quot; and its &quot;end-of-support date.&quot;<sup class="cite"><a href="#ref3">[3]</a></sup> It then asks the manufacturer to identify all known vulnerabilities in the device and its components, including those in CISA&#x27;s Known Exploited Vulnerabilities Catalog, to &quot;describe how the vulnerabilities were discovered to demonstrate whether the assessment methods were sufficiently robust,&quot; and to assess the safety and security risk of each.<sup class="cite"><a href="#ref3">[3]</a></sup></p>
+        <p><strong>Deficiency.</strong> A spreadsheet has no transitive dependencies, because nobody typed them, no support status, no end-of-support dates, and no vulnerability assessment, so the reviewer cannot tell whether the open vulnerabilities were judged or never looked up. And because it was written from the design and not from the build, it can disagree with the binary that ships, which is why composition analysis of binary executables is on the guidance&#x27;s list of tests.</p>
+        <p><strong>Evidence.</strong> An SBOM generated from the build in an industry format, with support status and end-of-support recorded per component, a vulnerability assessment for each component that says how it was found, and an SBOM that agrees with the shipped image.</p>
+        <p>Each of these is a document about the device as designed, checked against the device as built. The last deficiency is the one that turns that gap into a liability.</p>
+      </div>
+    </section>
+    <section class="section article-section problem-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">A summary that claims more than the file holds</h2></div>
+        <p>The cybersecurity summary at the front of the monitor&#x27;s section says that all communications are encrypted and authenticated. The reviewer looks for the artifact that shows it. There is a line in the threat model, and nothing else.</p>
+        <p><strong>Artifact.</strong> The guidance asks the security risk management report to &quot;provide traceability between the threat model, cybersecurity risk assessment, SBOM, and testing documentation.&quot;<sup class="cite"><a href="#ref3">[3]</a></sup> Every claim in the summary should name an artifact the reviewer can open.</p>
+        <p><strong>Deficiency.</strong> A summary that outruns its file. The threat model says a control exists, the view does not show where, the tests never exercise it, and the summary asserts it anyway. It is the gap the four deficiencies above accumulate into, and the one a reviewer sees first.</p>
+        <p>It is also no longer only a review problem. On July 31, 2025, the Department of Justice announced that Illumina Inc. agreed to pay $9.8 million to resolve False Claims Act allegations that it sold government agencies genomic sequencing systems with cybersecurity vulnerabilities and &quot;falsely represented that the software on the genomic sequencing systems adhered to cybersecurity standards, including standards of the International Organization for Standardization and National Institute of Standards and Technology.&quot;<sup class="cite"><a href="#ref4">[4]</a></sup> No breach was alleged, and as the Department states, &quot;the claims resolved by the settlement are allegations only and there has been no determination of liability.&quot;<sup class="cite"><a href="#ref4">[4]</a></sup> The point for a device maker is narrower than the case: a written statement about device security is a representation, and one the file cannot support has consequences outside the review.</p>
+        <p>So here is what the monitor&#x27;s file looks like when all five are answered.</p>
+      </div>
+    </section>
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">What submission-ready looks like</h2></div>
+        <p>The penetration test report states who tested, how independent they were, the scope, the duration, the methods, and the findings, with the original third-party report attached and a disposition for each. Each control in the threat model has a test that attacked it and a record of what the device did. The interface list came from the firmware and the board, and the views match it. The SBOM came from the build, with support status, end-of-support dates, and a vulnerability assessment per component. The summary names an artifact for every sentence. The postmarket plan, the disclosure process, and the labeling are in place, and the checklist covers those.</p>
+        <p>None of this is exotic. It is the difference between a file about the device as designed and a file about the device as built, and the second kind is the one a reviewer can accept.</p>
+        <h3 class="section-subhead">What to ask of anyone producing your evidence, us included</h3>
+        <p><strong>How independent are you from the people who built it?</strong> The guidance asks the report to say so. The answer should be a sentence you can put in the file, not a reassurance.</p>
+        <p><strong>Do you take the firmware apart, or only test it from the outside?</strong> The interfaces and credentials that sink submissions live in the image and on the board, where black-box testing does not look.</p>
+        <p><strong>Does each control in the threat model get its own test?</strong> Ask to see one: the attack attempted, the device&#x27;s response, and which architecture view it traces to.</p>
+        <p><strong>Does each finding arrive with the path that reached it and a disposition we can file?</strong> A finding without a path cannot be reproduced, and a finding without a disposition is a question the reviewer will ask.</p>
+        <p><strong>Which of these can you show me?</strong> A sample report is evidence. A methodology slide is not.</p>
+        <p>A cybersecurity plan describes what a device was meant to be. The evidence beneath it shows what the device is. Since October 2023 the second is what gets a submission through the door, and it is the part we are glad to show.</p>
+        <p class="blog-back"><a href="blog.html">← Back to Blog</a></p>
+      </div>
+    </section>
+    <!-- Pitch layer: what we sell, kept apart from the editorial above -->
+    <section class="section problem-section blog-pitch-section" aria-labelledby="pitch-title">
+      <div class="container container--narrow">
+          <div class="blog-callout blog-pitch">
+          <h2 class="blog-pitch-title" id="pitch-title">Preparing a submission? We produce the evidence under the plan.</h2>
+          <p>The consultancy that wrote your plan should keep owning it. What sits beneath the plan, the firmware taken apart, the device and its app observed in operation, every interface exercised, and an independent penetration test written to the five elements above, is the work we do, direct or as a white-label subcontract under your consultancy&#x27;s name. One product line first; judge us on the artifacts. The full list of what a reviewer expects is in our <a href="524b-checklist/">524B evidence checklist</a>.</p>
+          <ul>
+          <li><strong>Firmware analysis</strong> — the image taken apart: boot chain, credential and key handling, the update mechanism, and every interface the binary exposes, whether or not the diagram shows it.</li>
+          <li><strong>Runtime behavior</strong> — the companion app and the device observed in operation: privilege boundaries, service exposure, and what each control does when it is attacked.</li>
+          <li><strong>Independent penetration test</strong> — written to the elements reviewers look for: independence, scope, duration, methods, findings, with a disposition for each finding you can place in the risk file. A report, not a scan export.</li>
+          <li><strong>Threat-mitigation testing</strong> — each control in your threat model exercised by hand and its behavior recorded against the view it came from, so Regulatory can place it in the submission.</li>
+          </ul>
+          <p><a class="btn btn-solution" href="mailto:josh@vivasecuris.com?subject=524B%20evidence%20scoping%20call%20from%20the%20Refuse%20to%20Accept%20article">Request a scoping call</a></p>
+          <p class="blog-pitch-alt">Or write to <a href="mailto:josh@vivasecuris.com?subject=524B%20evidence%20scoping%20call%20from%20the%20Refuse%20to%20Accept%20article">josh@vivasecuris.com</a>.</p>
+          </div>
+      </div>
+    </section>
+    <section class="section references-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">References</h2></div>
+        <ol class="references">
+          <li id="ref1">Federal Food, Drug, and Cosmetic Act section 524B, <em>Ensuring cybersecurity of devices</em>, 21 U.S.C. 360n-2, added by the Consolidated Appropriations Act, 2023 (Pub. L. 117-328). <a href="https://www.law.cornell.edu/uscode/text/21/360n-2">https://www.law.cornell.edu/uscode/text/21/360n-2</a></li>
+          <li id="ref2">U.S. Food and Drug Administration, <em>Cybersecurity in Medical Devices: Refuse to Accept Policy for Cyber Devices and Related Systems Under Section 524B of the FD&amp;C Act</em>, guidance for industry and FDA staff; notice of availability, 88 FR 19148, March 30, 2023. <a href="https://www.govinfo.gov/content/pkg/FR-2023-03-30/html/2023-06646.htm">https://www.govinfo.gov/content/pkg/FR-2023-03-30/html/2023-06646.htm</a></li>
+          <li id="ref3">U.S. Food and Drug Administration, <em>Cybersecurity in Medical Devices: Quality Management System Considerations and Content of Premarket Submissions</em>, final guidance issued February 3, 2026 (docket FDA-2021-D-1158; supersedes the June 27, 2025 version). <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/cybersecurity-medical-devices-quality-management-system-considerations-and-content-premarket">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/cybersecurity-medical-devices-quality-management-system-considerations-and-content-premarket</a></li>
+          <li id="ref4">U.S. Department of Justice, <em>Illumina Inc. to Pay $9.8M to Resolve False Claims Act Allegations Arising from Cybersecurity Vulnerabilities in Genomic Sequencing Systems</em>, press release, July 31, 2025. <a href="https://www.justice.gov/opa/pr/illumina-inc-pay-98m-resolve-false-claims-act-allegations-arising-cybersecurity">https://www.justice.gov/opa/pr/illumina-inc-pay-98m-resolve-false-claims-act-allegations-arising-cybersecurity</a></li>
+        </ol>
+      </div>
+    </section>
+<footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Site</h4>
+                        <ul>
+                            <li><a href="index.html#problem">Problem</a></li>
+                            <li><a href="index.html#solutions">Solutions</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="zero-trust-healthcare-access.html">Zero Trust in Healthcare</a></li>
+                            <li><a href="524b-checklist/">524B Checklist</a></li>
+                            <li><a href="vivaos.html">Our Platform</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 VivaSecuris. All rights reserved.</p>
+                <p class="footer-tagline">Protecting life-critical systems. Saving lives.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
