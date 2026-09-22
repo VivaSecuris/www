@@ -202,6 +202,15 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" placeholder="Tell us about your interest in VivaSecuris..." required></textarea>
                         </div>
+                        <!-- Spam trap, paired with TRAP_FIELD in the contact handler.
+                             Positioned off-screen rather than type="hidden" or
+                             display:none, both of which form-filling bots skip.
+                             A browser submits it empty; the handler refuses a POST
+                             that fills it, and one that omits it entirely. -->
+                        <div class="form-trap" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
                         <button type="submit" class="btn btn-solution" id="contactFormSubmit">Request a conversation</button>
                         <p id="contactFormStatus" class="form-status" role="status" aria-live="polite" hidden></p>
                     </form>

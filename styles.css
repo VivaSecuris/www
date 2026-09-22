@@ -1240,6 +1240,18 @@ body {
     resize: vertical;
 }
 
+/* Spam trap: off the canvas, never focusable, never announced. Not display:none
+   and not type="hidden" — a form-filling bot skips both, and this field only
+   works if the bot sees it and fills it in. Paired with index.html and the
+   contact handler's TRAP_FIELD. */
+.form-trap {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 .form-status {
     margin-top: 16px;
     font-size: 0.95em;
