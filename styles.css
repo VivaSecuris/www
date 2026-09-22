@@ -1698,3 +1698,30 @@ html {
 }
 .references li { margin-bottom: 14px; }
 .references a { color: rgba(255, 255, 255, 0.9); word-break: break-word; }
+
+/* Blog pitch layer: a white card on a grey band below each post (mirrors .platform-teaser).
+   Inherits .blog-callout's border, radius and crimson left bar. White background is required:
+   .blog-callout's grey equals .problem-section's grey. Not in script.js's fade-in list. */
+.blog-pitch-section { padding: 64px 0; }
+.blog-pitch {
+    background: var(--bg-white);
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 32px;
+}
+.blog-pitch-title {
+    font-size: 1.45em;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 0.6em;
+}
+.blog-pitch p { margin: 0 0 1em; line-height: 1.7; color: var(--text-light); }
+.blog-pitch ul { margin: 0 0 1.4em 1.25em; padding: 0; line-height: 1.65; color: var(--text-light); }
+.blog-pitch li { margin-bottom: 0.5em; }
+.blog-pitch li strong { color: var(--text-dark); }
+.blog-pitch a:not(.btn) { color: var(--primary-color); }
+.blog-pitch .btn { padding: 12px 28px; font-size: 1em; max-width: 100%; white-space: normal; text-align: center; }
+.blog-pitch-alt { font-size: 0.92em; }
+
+/* The in-development note in the VivaOS hero carries a link; the hero is crimson */
+.hero-tagline a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
