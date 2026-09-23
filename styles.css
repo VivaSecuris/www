@@ -1755,3 +1755,39 @@ html {
 .article-section.approach-section a.inline-link:hover {
     color: #ffffff;
 }
+
+/* The home page lists recent writing as date and title only, so the rows need
+   less air than the blog index, where every entry also carries an excerpt. */
+.blog-list--compact {
+    gap: 22px;
+}
+
+.blog-list--compact .blog-post {
+    padding-bottom: 22px;
+}
+
+.blog-list--compact .blog-post-header {
+    margin-bottom: 0;
+}
+
+.blog-list--compact .blog-post-title {
+    font-size: 1.15em;
+}
+
+/* Cards on the home page carry a link, which must sit at the card foot however
+   long the sentence above it runs. */
+.home-build-card {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.home-build-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0 0 14px;
+}
+
+.home-build-card .blog-post-more {
+    margin-top: auto;
+}
