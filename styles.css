@@ -1737,3 +1737,21 @@ html {
 
 /* The in-development note in the VivaOS hero carries a link; the hero is crimson */
 .hero-tagline a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Inline links inside article prose. The site has no global anchor rule, so a
+   link in a body paragraph would render as browser-default blue; it also needs
+   a second colour because the article bands alternate white and crimson. */
+.article-section a.inline-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.article-section a.inline-link:hover {
+    color: var(--primary-dark);
+}
+
+.article-section.approach-section a.inline-link,
+.article-section.approach-section a.inline-link:hover {
+    color: #ffffff;
+}
