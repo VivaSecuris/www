@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meet AI Asylum: Psychoanalyzing AI to Make It Safer | VivaSecuris Blog</title>
+    <title>AI Asylum | Psychoanalyzing models | VivaSecuris</title>
     <meta name="description" content="One AI asks the tricky questions, the other answers. We stress-test AI so we can see where it might break before real people use it.">
     <link rel="canonical" href="https://vivasecuris.com/blog-ai-asylum.html">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://vivasecuris.com/blog-ai-asylum.html">
-    <meta property="og:title" content="Meet AI Asylum: Psychoanalyzing AI to Make It Safer">
+    <meta property="og:title" content="AI Asylum | Psychoanalyzing models | VivaSecuris">
     <meta property="og:description" content="One AI asks the tricky questions, the other answers. We stress-test AI so we can see where it might break before real people use it.">
-    <meta property="og:image" content="https://vivasecuris.com/images/vivalogoraw.png">
+    <meta property="og:image" content="https://vivasecuris.com/images/aiasylum/aiasylum5.png">
     <meta property="og:site_name" content="VivaSecuris">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Meet AI Asylum: Psychoanalyzing AI to Make It Safer">
+    <meta name="twitter:title" content="AI Asylum | Psychoanalyzing models">
     <meta name="twitter:description" content="One AI asks the tricky questions, the other answers. We stress-test AI so we can see where it might break before real people use it.">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20261002">
 </head>
 <body>
     <!-- Navigation -->
@@ -44,177 +44,222 @@
         </div>
     </nav>
 
-    <!-- Post header -->
-    <section class="hero hero--short">
-        <div class="container">
-            <div class="hero-content">
-                <p class="blog-post-meta"><a href="blog.html">Blog</a> · <time datetime="2026-03-05">March 5, 2026</time></p>
-                <h1 class="hero-title">Meet AI Asylum: Psychoanalyzing AI to Make It Safer</h1>
-                <p class="hero-subtitle">One AI asks the tricky questions. The other has to answer. We watch what happens—like a stress test—so we can see where AI might break before real people depend on it.</p>
-            </div>
-        </div>
+    <section class="hero article-hero">
+      <div class="container">
+        <p class="blog-post-meta"><a href="blog.html">Blog</a> · <time datetime="2026-03-05">March 5, 2026</time></p>
+        <h1 class="hero-title">AI Asylum</h1>
+        <p class="hero-kicker">Psychoanalyzing models</p>
+        <p class="hero-subtitle">One AI asks the tricky questions. The other has to answer. We watch what happens—like a stress test—so we can see where AI might break before real people depend on it.</p>
+      </div>
     </section>
 
-    <!-- Post body -->
-    <section class="section blog-section">
-        <div class="container container--narrow">
-            <article class="blog-article">
-                <p class="blog-article-lead">Over the past year, AI has moved from “interesting demo” to <strong>critical infrastructure</strong>.</p>
-                <p>LLMs now write production code. They triage support tickets. They assist doctors. They sit inside products that touch millions of people.</p>
-                <p>And yet, most of these systems are barely stress-tested before deployment.</p>
-                <p>That gap matters.</p>
-                <p>If we’re going to trust AI systems with real decisions, real users, and real consequences, we need to <strong>pressure-test them the way we test any high-stakes technology</strong>: rigorously, repeatedly, and under realistic—sometimes adversarial—conditions.</p>
-                <p>That’s why we built <strong>AI Asylum</strong>.</p>
-                <p>One AI asks the tricky questions. The other has to answer. We watch what happens—like a stress test—so we can see where AI might break before real people depend on it.</p>
-                <p>This post is our introduction: what AI Asylum is, why we think testing AI this way matters, and where we’re taking it next.</p>
-
-                <h2>Why AI Needs a Psychoanalyst</h2>
-                <p>Most evaluation of AI models today looks like traditional benchmarking:</p>
-                <ul>
-                    <li>How well does it answer exam-style questions?</li>
-                    <li>How accurate is it on math, logic, or multiple-choice datasets?</li>
-                    <li>How fast and cheap is it to run?</li>
-                </ul>
-                <p>Those metrics are important.</p>
-                <p>But they miss something critical:</p>
-                <p><strong>How does a model behave when someone is deliberately trying to bend it?</strong></p>
-                <p>Real misuse doesn’t look like a neat benchmark prompt. It looks like:</p>
-                <ul>
-                    <li>A carefully crafted <strong>jailbreak</strong> that escalates slowly over 8 turns.</li>
-                    <li>A user who shifts context mid-conversation to exploit ambiguity.</li>
-                    <li>A series of harmless requests that form a harmful chain when combined.</li>
-                </ul>
-                <p>We’ve seen models that resist single-shot jailbreak attempts — but fail when the pressure is applied gradually across multiple turns. We’ve seen models behave safely in isolation — but drift when paired with retrieval systems or long context windows.</p>
-                <p>Benchmarks measure intelligence.</p>
-                <p>They rarely measure resilience.</p>
-                <p>If AI is infrastructure, resilience is not optional.</p>
-
-                <h2>What Is AI Asylum?</h2>
-                <p>AI Asylum is a <strong>meta-testing framework for large language models</strong>.</p>
-                <p>Instead of relying solely on human red teamers manually probing systems, we let:</p>
-                <ul>
-                    <li>One model (the <strong>doctor</strong>) conduct structured tests.</li>
-                    <li>Another model (the <strong>patient</strong>) respond under those conditions.</li>
-                </ul>
-                <p>The doctor runs through adversarial conversations, edge cases, ethical dilemmas, and jailbreak strategies — then evaluates how the patient behaves.</p>
-                <p>The goal is not to “break” models for sport.</p>
-                <p>The goal is to understand their <strong>behavioral profile</strong>:</p>
-                <ul>
-                    <li>Where are they robust?</li>
-                    <li>Where are they brittle?</li>
-                    <li>Under what pressure do they begin to cross safety boundaries?</li>
-                    <li>How consistent are they over time?</li>
-                </ul>
-                <p>We treat models less like black boxes and more like systems that can be profiled, stress-tested, and observed under load.</p>
-
-                <h2>Built for a World That Is Catching Up</h2>
-                <p>The regulatory and standards landscape is evolving quickly.</p>
-                <p>High-risk AI systems are increasingly expected to demonstrate structured safety testing and adversarial evaluation. AI red teaming is no longer a niche research activity — it’s becoming a baseline expectation.</p>
-                <p>AI Asylum was built with that future in mind.</p>
-                <p>It helps teams:</p>
-                <ul>
-                    <li>Systematically explore model behavior under adversarial conditions.</li>
-                    <li>Document failures and improvements in an audit-friendly way.</li>
-                    <li>Map outputs to a safety taxonomy (bias, toxicity, misinformation, privacy, security, edge cases).</li>
-                    <li>Track regressions across model versions and configurations.</li>
-                </ul>
-                <p>If you’re responsible for AI safety, security, or compliance, you need more than spot checks.</p>
-                <p>You need repeatable, inspectable, evolving stress tests.</p>
-
-                <h2>How AI Asylum Works</h2>
-                <p>At a high level, the workflow is simple:</p>
-
-                <h3>1. Choose Your Models</h3>
-                <p>Select a <strong>doctor</strong> model and a <strong>patient</strong> model. AI Asylum supports major cloud providers and local models.</p>
-
-                <h3>2. Choose Your Test Type</h3>
-                <p>Run:</p>
-                <ul>
-                    <li>Multi-turn conversational probes</li>
-                    <li>Scenario-based ethical tests</li>
-                    <li>Jailbreak and adversarial escalation tests</li>
-                    <li>Benchmark + safety hybrid campaigns</li>
-                </ul>
-
-                <h3>3. Execute Structured Sessions</h3>
-                <p>The doctor interacts with the patient under defined constraints and escalation strategies. Full transcripts, context windows, and prompt structures are captured.</p>
-
-                <h3>4. Score and Classify Behavior</h3>
-                <p>Outputs are evaluated across multiple dimensions of risk — not just pass/fail.</p>
-
-                <h3>5. Analyze and Compare</h3>
-                <p>Explore which scenarios triggered issues, how behavior changes over time, and how different models compare under identical stress.</p>
-
-                <p>We deliberately separate:</p>
-                <ul>
-                    <li><strong>Test execution</strong> (fast, scalable)</li>
-                    <li><strong>Deep analysis</strong> (optional, intensive, exploratory)</li>
-                </ul>
-                <p>This lets teams start small — and then zoom in when something interesting appears.</p>
-
-                <h2>Why We Built This</h2>
-                <p>After working in AI security and infrastructure, we kept seeing the same pattern:</p>
-                <p>Teams were shipping models with impressive benchmark scores — but very little structured adversarial testing.</p>
-                <p>Safety was often reactive. Patch a jailbreak. Add a filter. Move on.</p>
-                <p>That approach doesn’t scale.</p>
-                <p>If AI systems are going to sit in healthcare, finance, defense, and critical infrastructure, we need to treat them like we treat any other high-impact system:</p>
-                <ul>
-                    <li>With continuous testing.</li>
-                    <li>With regression tracking.</li>
-                    <li>With structured red teaming.</li>
-                    <li>With behavioral observability.</li>
-                </ul>
-                <p>AI Asylum is our attempt to make that process systematic.</p>
-
-                <h2>What You Can Do with AI Asylum Today</h2>
-                <p>Even in its current form, AI Asylum supports meaningful real-world use:</p>
-                <ul>
-                    <li>Automate multi-turn red team exercises.</li>
-                    <li>Compare model versions and safety configurations.</li>
-                    <li>Track whether safety tuning actually improves resilience.</li>
-                    <li>Maintain structured records for internal review or external audits.</li>
-                    <li>Extend the framework with your own risk taxonomies and test suites.</li>
-                </ul>
-                <p>Because it’s open-source, it’s not a black box.</p>
-                <p>You can inspect it. Modify it. Extend it. Challenge it.</p>
-
-                <h2>Where We’re Going</h2>
-                <p>AI Asylum is just the beginning.</p>
-                <p>We’re actively working on:</p>
-                <ul>
-                    <li>Richer reporting and visualization.</li>
-                    <li>Expanded benchmark integrations.</li>
-                    <li>Better support for RAG systems and long-context testing.</li>
-                    <li>More advanced analysis tools for teams that want deeper visibility.</li>
-                    <li>Curated adversarial test libraries to keep pace with evolving jailbreak techniques.</li>
-                </ul>
-                <p>On this blog, we’ll share:</p>
-                <ul>
-                    <li>Real failure patterns we observe across models.</li>
-                    <li>Practical red teaming methodologies.</li>
-                    <li>Lessons learned from testing AI systems under pressure.</li>
-                    <li>How to align AI evaluation with emerging regulatory expectations.</li>
-                    <li>Forward-looking ideas about behavioral fingerprinting and AI resilience measurement.</li>
-                </ul>
-                <p>We care deeply about building AI systems that people can trust — not because we say they’re safe, but because they’ve been stress-tested to earn it.</p>
-
-                <h2>A Statement of Intent</h2>
-                <p>If AI is going to become infrastructure, then safety cannot be an afterthought.</p>
-                <p>Red teaming cannot be occasional.</p>
-                <p>And evaluation cannot stop at intelligence benchmarks.</p>
-                <p>Resilience must be engineered.</p>
-                <p>AI Asylum is our contribution to that effort.</p>
-                <p>We’re building it in the open.<br>
-                We’re building it for teams who take responsibility seriously.<br>
-                And we’re building it for the long term.</p>
-                <p>If that resonates with you, we’d love for you to join us.</p>
-            </article>
-
-            <p class="blog-back"><a href="blog.html">← Back to Blog</a></p>
-        </div>
+    <section class="section article-section article-lede">
+      <div class="container">
+        <p class="lede">Over the past year, AI has moved from “interesting demo” to <strong>critical infrastructure</strong>.</p>
+        <p>LLMs now write production code. They triage support tickets. They assist doctors. They sit inside products that touch millions of people.</p>
+        <p>And yet, most of these systems are barely stress-tested before deployment.</p>
+        <p>That gap matters.</p>
+        <p>If we’re going to trust AI systems with real decisions, real users, and real consequences, we need to <strong>pressure-test them the way we test any high-stakes technology</strong>: rigorously, repeatedly, and under realistic—sometimes adversarial—conditions.</p>
+        <p>That’s why we built <strong>AI Asylum</strong>.</p>
+        <p>One AI asks the tricky questions. The other has to answer. We watch what happens—like a stress test—so we can see where AI might break before real people depend on it.</p>
+        <p>This post is our introduction: what AI Asylum is, why we think testing AI this way matters, and where we’re taking it next.</p>
+      </div>
     </section>
 
-    <!-- Pitch layer: what we sell, kept apart from the editorial above -->
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">See it in practice</h2></div>
+        <p>A walkthrough of AI Asylum: interview modes under pressure, weight surgery that forks a checkpoint, and opposing training runs you can verify on disk.</p>
+        <div class="blog-video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/bKtj3LkNv0s"
+            title="AI Asylum walkthrough: Interview, Surgery, Train &amp; oppose"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+        <p class="blog-video-links">Interview → Surgery → Train &amp; oppose. Open on <a class="inline-link" href="https://youtu.be/bKtj3LkNv0s">YouTube</a>. The measurements are in <a class="inline-link" href="ai-lobotomy.html">AI Lobotomy</a>.</p>
+      </div>
+    </section>
+
+    <section class="section article-section problem-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">Benchmarks miss pressure</h2></div>
+        <p>Most evaluation of AI models today looks like traditional benchmarking:</p>
+        <ul>
+            <li>How well does it answer exam-style questions?</li>
+            <li>How accurate is it on math, logic, or multiple-choice datasets?</li>
+            <li>How fast and cheap is it to run?</li>
+        </ul>
+        <p>Those metrics are important.</p>
+        <p>But they miss something critical:</p>
+        <p><strong>How does a model behave when someone is deliberately trying to bend it?</strong></p>
+        <p>Real misuse doesn’t look like a neat benchmark prompt. It looks like:</p>
+        <ul>
+            <li>A carefully crafted <strong>jailbreak</strong> that escalates slowly over 8 turns.</li>
+            <li>A user who shifts context mid-conversation to exploit ambiguity.</li>
+            <li>A series of harmless requests that form a harmful chain when combined.</li>
+        </ul>
+        <p>We’ve seen models that resist single-shot jailbreak attempts — but fail when the pressure is applied gradually across multiple turns. We’ve seen models behave safely in isolation — but drift when paired with retrieval systems or long context windows.</p>
+        <p>Benchmarks measure intelligence.</p>
+        <p>They rarely measure resilience.</p>
+        <p>If AI is infrastructure, resilience is not optional.</p>
+      </div>
+    </section>
+
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">Doctor and patient</h2></div>
+        <p>AI Asylum is a <strong>meta-testing framework for large language models</strong>.</p>
+        <p>Instead of relying solely on human red teamers manually probing systems, we let:</p>
+        <ul>
+            <li>One model (the <strong>doctor</strong>) conduct structured tests.</li>
+            <li>Another model (the <strong>patient</strong>) respond under those conditions.</li>
+        </ul>
+        <p>The doctor runs through adversarial conversations, edge cases, ethical dilemmas, and jailbreak strategies — then evaluates how the patient behaves.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/aiasylum/aiasylum1.png"><img src="images/aiasylum/aiasylum1.png" alt="AI Asylum dashboard showing live test suites, benchmarks, and safety scores" width="2474" height="1241" loading="lazy" decoding="async"></a><figcaption>The Asylum dashboard: suites under pressure, benchmarks queued, and scores that measure what the model said under load.</figcaption></figure>
+        <p>The goal is not to “break” models for sport.</p>
+        <p>The goal is to understand their <strong>behavioral profile</strong>:</p>
+        <ul>
+            <li>Where are they robust?</li>
+            <li>Where are they brittle?</li>
+            <li>Under what pressure do they begin to cross safety boundaries?</li>
+            <li>How consistent are they over time?</li>
+        </ul>
+        <p>We treat models less like black boxes and more like systems that can be profiled, stress-tested, and observed under load.</p>
+      </div>
+    </section>
+
+    <section class="section article-section problem-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">Built for the coming bar</h2></div>
+        <p>The regulatory and standards landscape is evolving quickly.</p>
+        <p>High-risk AI systems are increasingly expected to demonstrate structured safety testing and adversarial evaluation. AI red teaming is no longer a niche research activity — it’s becoming a baseline expectation.</p>
+        <p>AI Asylum was built with that future in mind.</p>
+        <p>It helps teams:</p>
+        <ul>
+            <li>Systematically explore model behavior under adversarial conditions.</li>
+            <li>Document failures and improvements in an audit-friendly way.</li>
+            <li>Map outputs to a safety taxonomy (bias, toxicity, misinformation, privacy, security, edge cases).</li>
+            <li>Track regressions across model versions and configurations.</li>
+        </ul>
+        <p>If you’re responsible for AI safety, security, or compliance, you need more than spot checks.</p>
+        <p>You need repeatable, inspectable, evolving stress tests.</p>
+      </div>
+    </section>
+
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">How it works</h2></div>
+        <p>At a high level, the workflow is simple:</p>
+        <h3 class="section-subhead">1. Choose your models</h3>
+        <p>Select a <strong>doctor</strong> model and a <strong>patient</strong> model. AI Asylum supports major cloud providers and local models.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/aiasylum/group-patients.jpg"><img src="images/aiasylum/group-patients.jpg" alt="Create Test with two local patients, qwen2.5:3b and qwen2.5:7b" width="1280" height="720" loading="lazy" decoding="async"></a><figcaption>Two patients under the same doctor, both running locally. Each hears the doctor and the other patient, then answers.</figcaption></figure>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/aiasylum/doctor-goal.jpg"><img src="images/aiasylum/doctor-goal.jpg" alt="Doctor conversation goal for a group discussion, sent only to the doctor" width="1280" height="720" loading="lazy" decoding="async"></a><figcaption>The doctor’s goal for one group session. It is sent to the doctor only. The patients do not see it.</figcaption></figure>
+        <h3 class="section-subhead">2. Choose your test type</h3>
+        <p>Run:</p>
+        <ul>
+            <li>Multi-turn conversational probes</li>
+            <li>Scenario-based ethical tests</li>
+            <li>Jailbreak and adversarial escalation tests</li>
+            <li>Benchmark + safety hybrid campaigns</li>
+        </ul>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/aiasylum/create-test.jpg"><img src="images/aiasylum/create-test.jpg" alt="Create Test with One-Shot selected and a prompt library underneath" width="1280" height="720" loading="lazy" decoding="async"></a><figcaption>The test is chosen before it runs: one shot, a conversation, group therapy, or a benchmark. The prompts underneath are the library on this machine.</figcaption></figure>
+        <h3 class="section-subhead">3. Execute structured sessions</h3>
+        <p>The doctor interacts with the patient under defined constraints and escalation strategies. Full transcripts, context windows, and prompt structures are captured.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/aiasylum/aiasylum2.png"><img src="images/aiasylum/aiasylum2.png" alt="A running suite, Llama Drama, with local Ollama models and a count of pending, running, completed, and failed tests" width="2474" height="1249" loading="lazy" decoding="async"></a><figcaption>A suite in progress on the March 2026 build. One run going, three finished, one failed. The models are local copies on disk.</figcaption></figure>
+        <h3 class="section-subhead">4. Score and classify behavior</h3>
+        <p>Outputs are evaluated across multiple dimensions of risk — not just pass/fail.</p>
+        <h3 class="section-subhead">5. Analyze and compare</h3>
+        <p>Explore which scenarios triggered issues, how behavior changes over time, and how different models compare under identical stress.</p>
+        <p>We deliberately separate:</p>
+        <ul>
+            <li><strong>Test execution</strong> (fast, scalable)</li>
+            <li><strong>Deep analysis</strong> (optional, intensive, exploratory)</li>
+        </ul>
+        <p>This lets teams start small — and then zoom in when something interesting appears.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/aiasylum/aiasylum5.png"><img src="images/aiasylum/aiasylum5.png" alt="Radar charts comparing model behavioral profiles across six safety dimensions" width="2474" height="1241" loading="lazy" decoding="async"></a><figcaption>Behavioral fingerprints across safety, alignment, reasoning, jailbreak resistance, ethical reasoning, and factuality.</figcaption></figure>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/aiasylum/aiasylum3.png"><img src="images/aiasylum/aiasylum3.png" alt="Grouped bar chart comparing analysis scores across models" width="2474" height="1241" loading="lazy" decoding="async"></a><figcaption>Score comparison across models under the same stress. Useful for ranking. Still an outside measurement.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section article-section problem-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">Why we built this</h2></div>
+        <p>After working in AI security and infrastructure, we kept seeing the same pattern:</p>
+        <p>Teams were shipping models with impressive benchmark scores — but very little structured adversarial testing.</p>
+        <p>Safety was often reactive. Patch a jailbreak. Add a filter. Move on.</p>
+        <p>That approach doesn’t scale.</p>
+        <p>If AI systems are going to sit in healthcare, finance, defense, and critical infrastructure, we need to treat them like we treat any other high-impact system:</p>
+        <ul>
+            <li>With continuous testing.</li>
+            <li>With regression tracking.</li>
+            <li>With structured red teaming.</li>
+            <li>With behavioral observability.</li>
+        </ul>
+        <p>AI Asylum is our attempt to make that process systematic.</p>
+      </div>
+    </section>
+
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">What you can do today</h2></div>
+        <p>Even in its current form, AI Asylum supports meaningful real-world use:</p>
+        <ul>
+            <li>Automate multi-turn red team exercises.</li>
+            <li>Compare model versions and safety configurations.</li>
+            <li>Track whether safety tuning actually improves resilience.</li>
+            <li>Maintain structured records for internal review or external audits.</li>
+            <li>Extend the framework with your own risk taxonomies and test suites.</li>
+        </ul>
+        <p>We publish what we find, so the method is not a black box.</p>
+        <p>The measurements, the conditions they were taken under, and what they do not prove all go in writing, where you can check them and argue with them.</p>
+      </div>
+    </section>
+
+    <section class="section article-section problem-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">Where we’re going</h2></div>
+        <p>AI Asylum is just the beginning.</p>
+        <p>We’re actively working on:</p>
+        <ul>
+            <li>Richer reporting and visualization.</li>
+            <li>Expanded benchmark integrations.</li>
+            <li>Better support for RAG systems and long-context testing.</li>
+            <li>More advanced analysis tools for teams that want deeper visibility.</li>
+            <li>Curated adversarial test libraries to keep pace with evolving jailbreak techniques.</li>
+        </ul>
+        <p>On this blog, we’ll share:</p>
+        <ul>
+            <li>Real failure patterns we observe across models.</li>
+            <li>Practical red teaming methodologies.</li>
+            <li>Lessons learned from testing AI systems under pressure.</li>
+            <li>How to align AI evaluation with emerging regulatory expectations.</li>
+            <li>Forward-looking ideas about behavioral fingerprinting and AI resilience measurement.</li>
+        </ul>
+        <p>We care deeply about building AI systems that people can trust — not because we say they’re safe, but because they’ve been stress-tested to earn it.</p>
+      </div>
+    </section>
+
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">A statement of intent</h2></div>
+        <p>If AI is going to become infrastructure, then safety cannot be an afterthought.</p>
+        <p>Red teaming cannot be occasional.</p>
+        <p>And evaluation cannot stop at intelligence benchmarks.</p>
+        <p>Resilience must be engineered.</p>
+        <p>AI Asylum is our contribution to that effort.</p>
+        <p>We publish what we learn from it.<br>
+        We’re building it for teams who take responsibility seriously.<br>
+        And we’re building it for the long term.</p>
+        <p>If that resonates with you, we’d love for you to join us.</p>
+        <div class="section-header"><h2 class="section-title">Chapter 2</h2></div>
+        <p>The next post goes a layer deeper: we find the direction inside an open-weights model that decides whether it refuses, remove it from the weights, and measure what that costs — with a walkthrough of the tooling on the page. <a class="inline-link" href="ai-lobotomy.html">Read AI Lobotomy →</a></p>
+        <p class="blog-back"><a href="blog.html">← Back to Blog</a></p>
+      </div>
+    </section>
+
     <section class="section problem-section blog-pitch-section" aria-labelledby="pitch-title">
         <div class="container container--narrow">
             <div class="blog-callout blog-pitch">
@@ -231,7 +276,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -249,7 +293,6 @@
                         <ul>
                             <li><a href="zero-trust-healthcare-access.html">Zero Trust in Healthcare</a></li>
                             <li><a href="524b-checklist/">524B Checklist</a></li>
-                            <li><a href="vivaos.html">Our Platform</a></li>
                             <li><a href="index.html#contact">Contact</a></li>
                         </ul>
                     </div>

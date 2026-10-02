@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecurisNexus: Building Healthcare Systems That Don&#x27;t Rely on Blind Trust | VivaSecuris</title>
+    <title>SecurisNexus | Care without blind trust | VivaSecuris</title>
     <meta name="description" content="Zero Trust in healthcare, explained through one clinical request: what a login settles, what it does not, and the evidence a hospital leader should demand.">
     <link rel="canonical" href="https://vivasecuris.com/zero-trust-healthcare-access.html">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://vivasecuris.com/zero-trust-healthcare-access.html">
-    <meta property="og:title" content="SecurisNexus: Building Healthcare Systems That Don&#x27;t Rely on Blind Trust | VivaSecuris">
+    <meta property="og:title" content="SecurisNexus | Care without blind trust | VivaSecuris">
     <meta property="og:description" content="Zero Trust in healthcare, explained through one clinical request: what a login settles, what it does not, and the evidence a hospital leader should demand.">
     <meta property="og:image" content="https://vivasecuris.com/images/vivalogoraw.png">
     <meta property="og:site_name" content="VivaSecuris">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="SecurisNexus: Building Healthcare Systems That Don&#x27;t Rely on Blind Trust">
+    <meta name="twitter:title" content="SecurisNexus | Care without blind trust">
     <meta name="twitter:description" content="Identity, limited authority, and accountable access, followed through one clinical request.">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20261002">
 </head>
 <body>
 <!-- Navigation -->
@@ -49,7 +49,8 @@
     <section class="hero article-hero">
       <div class="container">
         <p class="blog-post-meta"><a href="blog.html">Blog</a> · <time datetime="2026-05-11">May 11, 2026</time></p>
-        <h1 class="hero-title">SecurisNexus: Building Healthcare Systems That Don&#x27;t Rely on Blind Trust</h1>
+        <h1 class="hero-title">SecurisNexus</h1>
+        <p class="hero-kicker">Care without blind trust</p>
         <p class="hero-subtitle">How identity, limited authority, and accountable access can support the work of delivering care</p>
       </div>
     </section>
@@ -63,7 +64,7 @@
     </section>
     <section class="section article-section approach-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">Zero Trust is not a judgment about the people delivering care</h2></div>
+        <div class="section-header"><h2 class="section-title">Not a judgment of people</h2></div>
         <p>The name invites a misreading. It sounds like an instruction to treat staff as suspects, which is both insulting and operationally useless.</p>
         <p>The real distinction is narrower and easier to defend. A hospital can trust a clinician&#x27;s professional judgment completely and still limit what that clinician&#x27;s <em>account</em> is able to do. It can trust a supplier to service equipment without granting a path to unrelated systems. It can approve an application without authorizing every use of the information that application can reach.</p>
         <p>Authentication establishes evidence about who or what is connecting. Authorization determines which access is permitted. A successful login answers the first question. It does not settle the second for every resource and every action.<sup class="cite"><a href="#ref1">[1]</a></sup></p>
@@ -73,7 +74,7 @@
     </section>
     <section class="section article-section problem-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">Follow one request through the system</h2></div>
+        <div class="section-header"><h2 class="section-title">One request</h2></div>
         <p>Take the clinician opening a patient&#x27;s imaging study from a shared workstation. What follows is an illustration of the design, not an account of a deployed environment.</p>
         <p>It helps to name the stages a single request passes through:</p>
         <div class="blog-callout lifecycle"><p><strong>Request → Identity → Authentication → Device Evaluation → Context Evaluation → Intent Evaluation → Policy Decision → Microsegmented Access → Continuous Verification → Audit Trail</strong></p></div>
@@ -82,6 +83,7 @@
         <p>First, identify both the clinician and the software making the request on their behalf. A workstation&#x27;s identity should not stand in for the person using it, and an application acting for a clinician should not disappear behind a shared service account that obscures who initiated the work.</p>
         <p>Then establish sufficient authentication evidence. A recent, adequately protected session might satisfy the hospital&#x27;s policy for opening a study; a more consequential action might require more. The design should not generate prompts merely to demonstrate that security exists.</p>
         <p>The principle underneath is simple: know who is acting, keep the authority being exercised attached to that actor, and never hand over more authority than the task requires.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/nexus/identities.png"><img src="images/nexus/identities.png" alt="Identities list labeled demo data, with one workload and one user" width="600" height="780" loading="lazy" decoding="async"></a><figcaption>A person and a workload, kept as separate identities. The badge on the screen says demo data. This is the design surface, not a clinic’s directory, and not a deployed access decision.</figcaption></figure>
         <h3 class="section-subhead">Evaluate the device and the circumstances</h3>
         <p>NIST&#x27;s implementation guidance describes access decisions drawing on relatively stable information — identity, role — alongside changing context such as device health and resource sensitivity.<sup class="cite"><a href="#ref3">[3]</a></sup></p>
         <p>For the imaging request, a hospital might weigh whether the workstation is managed, whether its security information is recent enough to mean anything, and whether the clinician has a defensible reason to open this particular study. A care relationship can be a useful input. It should not harden into a universal rule that blocks legitimate consultations, emergency care, or separately authorized organizational work — a policy that only anticipates the assigned-patient case will fail the first time a colleague is asked for a second opinion.</p>
@@ -91,6 +93,7 @@
         <p>&quot;Intent&quot; here means the requested operation and its declared purpose — opening a study for a consultation — evaluated against policy and available evidence. It does not mean software reading a person&#x27;s mind, and a stated purpose is evidence to weigh, not proof of anything.</p>
         <p>Policy might permit viewing the study while requiring separate authority for bulk export or administrative changes, or require an additional approval for one particular operation where the workflow can absorb it.</p>
         <p>The output of that decision needs to be more useful than a label like &quot;trusted.&quot; It should name the permitted action, the resource, the duration, and the conditions. Clinical, security, privacy, and operational owners agree those rules between them. No software component should be inventing them on their behalf.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/nexus/policy-detail.png"><img src="images/nexus/policy-detail.png" alt="Policy details for a demo read rule: verdict allowed, action data.read, resource vault demo, subject user demo" width="800" height="780" loading="lazy" decoding="async"></a><figcaption>One policy row names the verdict, the action, the resource, and the subject. The values are demo data. The article is the requirement this screen is being built toward.</figcaption></figure>
         <h3 class="section-subhead">Enforce the boundary where the action happens</h3>
         <p>Network segmentation restricts which systems can talk to each other. It is not a decision about which records a user may read or change. NIST&#x27;s guidance for cloud-native environments makes the same point from the other direction, describing policies based on &quot;application and service identities in addition to the underlying network parameters and user identities&quot; in order to enforce granular application-level policy.<sup class="cite"><a href="#ref4">[4]</a></sup></p>
         <p>The imaging example needs both: a restricted path to the necessary service, and application-level permission for the specific authorized operation. A network rule is not evidence that an application enforced a record-level restriction.</p>
@@ -107,7 +110,7 @@
     </section>
     <section class="section article-section approach-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">Availability and emergency access are part of the design</h2></div>
+        <div class="section-header"><h2 class="section-title">Availability is part of the design</h2></div>
         <p>An access policy is unfinished until it says what happens when normal operation is impossible. The HHS goals treat safe response, restoration, and recovery as essential rather than optional.<sup class="cite"><a href="#ref2">[2]</a></sup></p>
         <p>Emergency access should be a defined workflow — a responsible actor, bounded authority, an attributable record, and review afterward. Its purpose is to make justified access possible when ordinary permissions do not fit the situation, not to suspend accountability for the duration.</p>
         <p>It also cannot assume an urgent decision can wait for an approver who is unreachable at 3 a.m. Which emergency paths are acceptable, how they behave, and when review happens are questions to settle in advance, with the people responsible for care delivery in the room.</p>
@@ -116,7 +119,7 @@
     </section>
     <section class="section article-section problem-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">Devices and vendors need boundaries suited to their work</h2></div>
+        <div class="section-header"><h2 class="section-title">Devices and vendors</h2></div>
         <p>Return to the other two requests. A device transmitting observations and an engineer investigating a fault need nothing like the clinician&#x27;s authority.</p>
         <p>For the device, policy might permit one specific flow to its intended service without creating a route to anything else. For the engineer, it might permit a named maintenance operation on identified equipment inside an approved support window, with both the sponsoring organization and the individual recorded.</p>
         <p>These cases also expose a real limit. Many devices and applications cannot supply strong identity evidence or fine-grained controls at all. Where a gateway stands in front of such a device, the gateway&#x27;s identity is not proof of the device&#x27;s integrity, and a hospital needs to know precisely what that gateway can enforce and what it cannot see.</p>
@@ -125,7 +128,7 @@
     </section>
     <section class="section article-section approach-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">AI assistants need authority, not just instructions</h2></div>
+        <div class="section-header"><h2 class="section-title">Authority, not just instructions</h2></div>
         <p>An AI assistant is another actor in the same model, and it should be governed by the same questions rather than a new vocabulary.</p>
         <p>This is an area where the standards work is genuinely early. In February 2026 NIST&#x27;s NCCoE published a concept paper, <em>Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization</em>, seeking comment on whether to launch a full project on applying identity and authorization standards to software and AI agents. The comment period closed in April 2026.<sup class="cite"><a href="#ref6">[6]</a></sup> That is an open exploration of the problem — not a finished standard, and not a validation of anyone&#x27;s agent architecture.</p>
         <p>Consider an assistant asked to prepare a patient communication. It might receive permission to retrieve specified information and produce a draft. Sending the message, altering a clinical record, or passing information to another service are separate actions requiring separate authorization. Permission to draft is not permission to send.</p>
@@ -137,7 +140,7 @@
     </section>
     <section class="section article-section problem-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">Where SecurisNexus fits, and what remains to prove</h2></div>
+        <div class="section-header"><h2 class="section-title">Where it fits</h2></div>
         <p>The opportunity we see is not to redefine Zero Trust. NIST&#x27;s implementation guide, finalized in June 2025, already documents example architectures built from commercial products across nineteen builds.<sup class="cite"><a href="#ref7">[7]</a></sup> Its findings also describe a coordination problem worth dwelling on: policies &quot;are not centrally located,&quot; being configured and managed alongside each policy decision point, which &quot;makes it challenging to understand, articulate, and manage the ZTA&#x27;s policies as a comprehensive whole&quot; — and those components &quot;do not typically integrate with each other to share information.&quot;<sup class="cite"><a href="#ref5">[5]</a></sup></p>
         <p>That gap is where we are aiming. The role we intend for SecurisNexus is to connect identity, organizational authority, scoped permissions, delegation, and audit evidence across selected workflows, so that an understandable authorization decision can travel from the request to the component that actually performs the action.</p>
         <p>It does not replace an electronic health record, endpoint protection, device monitoring, a firewall, an existing identity provider, backups, or clinical governance. It creates an integration requirement: those systems have to exchange enough evidence and enforce the agreed boundaries.</p>
@@ -146,7 +149,7 @@
     </section>
     <section class="section article-section approach-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">Start with one workflow and ask for evidence</h2></div>
+        <div class="section-header"><h2 class="section-title">Start with one workflow</h2></div>
         <p>If this is worth acting on, the first step is not a platform decision. Choose one bounded workflow — third-party maintenance access is a good candidate, because its boundaries are already contractual — and map it end to end: the people and systems involved, the actions they genuinely need, the enforcement points that already exist, and the exceptions required to keep the service usable.</p>
         <p>Then test the boundaries rather than the login. Does access actually stop when the authorized window closes? Can the account reach something unrelated? What happens when evidence is missing? Can you reconstruct both a permitted action and a denied one, months later, for someone who was not there?</p>
         <p>Clinical access deserves the same treatment with more attention to workflow and downtime safety, and it needs clinical operations, IT, security, privacy, and biomedical engineering in the same conversation. Where those groups disagree, the disagreement is the design input. It is not a detail to be settled later by a product.</p>
@@ -162,12 +165,13 @@
       <div class="container container--narrow">
           <div class="blog-callout blog-pitch">
           <h2 class="blog-pitch-title" id="pitch-title">Start with one workflow. We can help.</h2>
-          <p>The article asks you to demand evidence rather than promises; we hold ourselves to the same standard. SecurisNexus is the access model we are building toward, not deployed capability we can install for you today. What we can do now is help you choose a bounded workflow, map it, and test its boundaries — the services below are how that work gets done.</p>
+          <p>The article asks you to demand evidence rather than promises; we hold ourselves to the same standard. SecurisNexus is the access model this piece describes, not a product we install for you today. What we can do now is help you choose a bounded workflow, map it, and test its boundaries — the services below are how that work gets done.</p>
           <ul>
           <li><strong>Network and remote-access monitoring</strong> — see every device and every vendor or IT login on your clinical network, with a record you can reconstruct months later. Observation only; we never block care.</li>
           <li><strong>Security testing &amp; assessment</strong> — test the boundaries, not the login: does access stop when the window closes? Can the account reach something unrelated? Reports written for auditors and insurers.</li>
           <li><strong>Medical device security</strong> — assess the devices on your network and document what a gateway can and cannot enforce. Manufacturers preparing an FDA submission can start with our <a href="524b-checklist/">524B evidence checklist</a>.</li>
           <li><strong>AI systems before clinical use</strong> — review an assistant’s permissions, delegation, and behavior under pressure before it touches patient data.</li>
+          <li><strong>Security training</strong> — role-based sessions for clinicians, biomed, and IT, tied to issues we actually see — risk reduction, not compliance theater.</li>
           </ul>
           <p><a class="btn btn-solution" href="mailto:josh@vivasecuris.com?subject=Scoping%20call%20from%20the%20Zero%20Trust%20article">Request a scoping call</a></p>
           <p class="blog-pitch-alt">Or write to <a href="mailto:josh@vivasecuris.com?subject=Scoping%20call%20from%20the%20Zero%20Trust%20article">josh@vivasecuris.com</a>.</p>
@@ -205,7 +209,6 @@
                         <ul>
                             <li><a href="zero-trust-healthcare-access.html">Zero Trust in Healthcare</a></li>
                             <li><a href="524b-checklist/">524B Checklist</a></li>
-                            <li><a href="vivaos.html">Our Platform</a></li>
                             <li><a href="index.html#contact">Contact</a></li>
                         </ul>
                     </div>

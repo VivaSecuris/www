@@ -11,6 +11,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://vivasecuris.com/ai-lobotomy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://vivasecuris.com/blog-ai-asylum.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -34,10 +39,5 @@
     <loc>https://vivasecuris.com/524b-checklist/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vivasecuris.com/vivaos.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 </urlset>

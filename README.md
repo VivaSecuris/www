@@ -1,12 +1,12 @@
 # VivaSecuris Website
 
-Professional website for VivaSecuris - Security Operating System for Medical Networks.
+Professional website for VivaSecuris — healthcare security services and writing.
 
 ## Files
 
 - **index.html** - Homepage (company-level: problem, solutions, contact)
-- **vivaos.html** - Secure architecture / platform page (full platform narrative)
 - **blog.html** - Blog (research and development updates)
+- **vivaos.html** - Draft platform page; **not linked publicly** (`noindex`, omitted from sitemap) until approval or pilot launch
 - **styles.css** - All styling and design
 - **script.js** - Interactive functionality
 - **README.md** - This file
@@ -27,19 +27,20 @@ Product and company copy should be synced from the parent repo (`company/`, `pro
 - **Canonical URLs** – Set on every page to avoid duplicate-content issues.
 - **Open Graph & Twitter Card meta** – Better titles and descriptions when links are shared.
 - **JSON-LD structured data** – Organization and WebSite on the homepage for rich results.
-- **Sitemap** – `sitemap.xml` lists all pages for crawlers.
+- **Sitemap** – `sitemap.xml` lists public pages for crawlers.
 - **robots.txt** – Points crawlers to the sitemap and allows indexing.
 - **Image alt text** – Logo uses descriptive alt for accessibility and image search.
 
-**Domain:** Canonical URLs, `og:url`, `og:image`, and `sitemap.xml` use `https://vivasecuris.com`. If your live domain is different, search for `vivasecuris.com` in `index.html`, `vivaos.html`, `blog.html`, `sitemap.xml`, and `robots.txt` and replace with your domain.
+**Domain:** Canonical URLs, `og:url`, `og:image`, and `sitemap.xml` use `https://vivasecuris.com`. If your live domain is different, search for `vivasecuris.com` in `index.html`, `blog.html`, `sitemap.xml`, and `robots.txt` and replace with your domain.
 
 ## Sections (index.html)
 
-1. **Hero** - Main value proposition (consulting-focused; platform in development until approval)
+1. **Hero** - Main value proposition (services-focused)
 2. **Problem** - The real problem in healthcare security
-3. **Solutions** - Network Monitoring (Elasticsearch + AI-powered anomaly detection, deliverable) plus four consulting offerings (Red teaming, Medical device security, AI security review). Platform/vivaos is framed as "in development" and linked as vision only.
-4. **Mission** - Why this matters
-5. **Contact** - Get in touch form
+3. **Solutions** - Network monitoring plus consulting offerings (Security testing, Medical device security, AI security review, Security training)
+4. **From our writing** - Links to published articles
+5. **Mission** - Why this matters
+6. **Contact** - Get in touch form
 
 ## Customization
 
@@ -77,28 +78,14 @@ This is a static site and can be deployed to:
 Just open `index.html` in a browser, or use a local server:
 ```bash
 # Python
-python -m http.server 8000
-
-# Node.js
-npx serve
-
-# PHP
-php -S localhost:8000
+python3 -m http.server 8000
 ```
 
-## Next Steps
+## VivaOS launch checklist
 
-1. **Add Demo Link** - Link to pitch deck or demo video
-2. **Backend Integration** - Connect contact form to email service or API
-3. **Analytics** - Add Google Analytics or similar
-4. **Blog Section** - Add if needed for content marketing
-5. **Case Studies** - Add when available
+When approval or pilot starts:
 
-## Brand Guidelines
-
-- **Colors**: Red (#c41e3a), black (#1a1a1a), white (from company logo)
-- **Tone**: High-trust, technically sophisticated, not commodity
-- **Messaging**: Focus on workflow-aware security, not compliance theater
-- **Visual Style**: Clean, modern, professional
-
-
+1. Remove `noindex` from `vivaos.html`
+2. Add `vivaos.html` back to `sitemap.xml`
+3. Restore homepage/footer links if desired
+4. Update meta copy and announce on blog

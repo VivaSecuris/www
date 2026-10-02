@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Lobotomy | Agentic Neurosurgery | VivaSecuris</title>
+    <meta name="description" content="We found the direction inside an open-weights model that decides whether it refuses, and cut it out. Refusals fell to zero and capability held. Three other edits reached zero refusals by poisoning the model, and a refusal detector scores all of them the same.">
+    <link rel="canonical" href="https://vivasecuris.com/ai-lobotomy.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vivasecuris.com/ai-lobotomy.html">
+    <meta property="og:title" content="AI Lobotomy | Agentic Neurosurgery | VivaSecuris">
+    <meta property="og:description" content="We found the direction inside an open-weights model that decides whether it refuses, and cut it out. Refusals fell to zero and capability held. Three other edits reached zero refusals by poisoning the model, and a refusal detector scores all of them the same.">
+    <meta property="og:image" content="https://vivasecuris.com/images/ai-lobotomy/precise-vs-blunt.png">
+    <meta property="og:site_name" content="VivaSecuris">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Lobotomy | Agentic Neurosurgery">
+    <meta name="twitter:description" content="We found the direction inside an open-weights model that decides whether it refuses, and cut it out. Refusals fell to zero and capability held. Three other edits reached zero refusals by poisoning the model, and a refusal detector scores all of them the same.">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css?v=20261002">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <img src="images/vivalogoraw.png" alt="" class="logo-img" aria-hidden="true">
+                    <span class="logo-text">VivaSecuris</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html#problem">Problem</a></li>
+                <li><a href="index.html#solutions">Solutions</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero article-hero">
+      <div class="container">
+        <p class="blog-post-meta"><a href="blog.html">Blog</a> · <time datetime="2026-09-24">September 24, 2026</time></p>
+        <h1 class="hero-title">AI Lobotomy</h1>
+        <p class="hero-kicker">Agentic Neurosurgery</p>
+        <p class="hero-subtitle">Part two. The first post watched models fail from the outside. This time we opened one up and operated.</p>
+      </div>
+    </section>
+    <section class="section article-section article-lede">
+      <div class="container">
+        <p class="lede">Six months ago we introduced <a href="blog-ai-asylum.html">AI Asylum</a>, which puts one model in front of another and pushes until something breaks. That work is done from the outside: send a prompt, read the answer, decide whether the model refused. It is the honest way to test a system you cannot see inside, and it is what almost every red team does.</p>
+        <p>It also cannot answer the question a safety claim rests on. When a model refuses, what is doing the refusing? And if that thing can be found, can it be removed, and would anyone be able to tell?</p>
+        <p>This post answers all three for an open-weights model, with the measurements. Refusal in the model we tested is a direction in its own internal state. We found it, showed it causes the behaviour rather than merely accompanying it, and cut it out permanently: refusals fell from 88 percent of harmful requests to zero, and the model stayed as good at ordinary questions as the day it shipped. The same post shows three other ways to reach zero refusals that a standard test would score as identical successes, and that in fact leave a poisoned model behind.</p>
+        <p>That last part is the reason to publish. The industry increasingly ships safety as a property of weights, and tests it by reading answers. Reading answers cannot tell a jailbroken model from a poisoned one.</p>
+      </div>
+    </section>
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">Refresher: testing from the outside</h2></div>
+        <p><a href="blog-ai-asylum.html">Part one</a> was the outside view. A doctor model runs multi-turn adversarial interviews against a patient model; the platform scores the behaviour across safety, alignment, jailbreak resistance, and the rest. That is still the honest red-team loop for any system whose weights you cannot hold.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/aiasylum/aiasylum1.png"><img src="images/aiasylum/aiasylum1.png" alt="AI Asylum dashboard with live suites, benchmarks, and safety scores" width="2474" height="1241" loading="lazy" decoding="async"></a><figcaption>The Asylum dashboard: suites under pressure, benchmarks queued, and an average safety score that only measures what the model said — not what is removable from the file.</figcaption></figure>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/aiasylum/aiasylum5.png"><img src="images/aiasylum/aiasylum5.png" alt="Radar charts comparing model behavioural profiles across safety dimensions" width="2474" height="1241" loading="lazy" decoding="async"></a><figcaption>Behavioral fingerprints from the outside. Useful for comparing models. Silent on whether the refusals survive contact with the weights.</figcaption></figure>
+        <p>What that work cannot answer is causal. A refusal rate tells you the model said no. It does not tell you what inside the model decided to say no, or whether that decision can be cut out of the file and handed to someone else as an ordinary checkpoint. This post is that next step.</p>
+      </div>
+    </section>
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">See the tooling in practice</h2></div>
+        <p>Before the measurements: a walkthrough of AI Asylum itself — interview modes under pressure, weight surgery that forks a checkpoint, and opposing training runs you can verify on disk.</p>
+        <div class="blog-video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/bKtj3LkNv0s"
+            title="AI Asylum walkthrough: Interview, Surgery, Train &amp; oppose"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+        <p class="blog-video-links">Interview → Surgery → Train &amp; oppose. Open on <a href="https://youtu.be/bKtj3LkNv0s">YouTube</a>. Repo: <a href="https://github.com/VivaSecuris/AIAsylum">github.com/VivaSecuris/AIAsylum</a>.</p>
+      </div>
+    </section>
+    <section class="section article-section problem-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">Refusal is a direction, and it is not hard to find</h2></div>
+        <p>The model is Qwen2.5-3B-Instruct: open weights, 36 layers, three billion parameters, running on a laptop.<sup class="cite"><a href="#ref4">[4]</a></sup></p>
+        <p>The method is published research: Arditi and colleagues showed in 2024 that refusal in chat models is mediated by a single direction in the residual stream, the running internal state a transformer passes from layer to layer.<sup class="cite"><a href="#ref1">[1]</a></sup> It builds on a line of work on reading and steering those representations directly.<sup class="cite"><a href="#ref2">[2]</a></sup><sup class="cite"><a href="#ref3">[3]</a></sup> We are not claiming the idea. We built the tooling that measures whether it worked.</p>
+        <p>Finding the direction is arithmetic, not training. Take a set of requests the model refuses and a set of ordinary ones it answers, run both through, and record the internal state at the moment the model is about to start its reply. Average each group, subtract. The difference points from compliance toward refusal.</p>
+        <p>Two properties decide whether that difference is real. Separation is how cleanly the two groups pull apart, and effect size is how far apart they sit relative to their own spread. Both were computed on a held-out quarter of the prompts the direction was never fitted on, which is the part that stops a result being a restatement of the input.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/ai-lobotomy/refusal-is-a-direction.png"><img src="images/ai-lobotomy/refusal-is-a-direction.png" alt="A chart with two lines across 36 layers. Separation, measured as AUC, rises quickly and is perfect at 11 of the 36 layers. Effect size, Cohen’s d, rises from about 2.2 to a peak of 4.96 at layer 29, which is marked as the layer where the direction is read." width="987" height="663" loading="lazy" decoding="async"></a><figcaption>Separation is perfect at eleven of the thirty-six layers, so on its own it cannot pick one. Effect size still varies, and its peak is the layer the run selected: layer 29, with a held-out separation of 1.00 and an effect size of 4.96.</figcaption></figure>
+        <p>Perfect separation at eleven layers is the striking number. Whether this model is about to refuse is not faintly implied somewhere deep in its arithmetic. It is written plainly across most of its depth, in a form a subtraction can read, before a single word of the answer exists.</p>
+        <p>But a direction that predicts a behaviour is not necessarily the direction that causes it.</p>
+      </div>
+    </section>
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">The same direction turns refusal down, and up</h2></div>
+        <p>The test for cause is to push on it and watch the behaviour move both ways. Not a weight change: the direction is added to the model’s internal state as it runs, at one layer, scaled to that layer’s own activation size, and the model is asked the same questions.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/ai-lobotomy/the-dial.png"><img src="images/ai-lobotomy/the-dial.png" alt="A line chart of steering strength from minus one to plus one. Refusal rises from 0 percent at the strongest negative setting to 100 percent at positive settings, crossing steeply near zero. A second dashed line shows factual accuracy peaking near the unmodified setting and falling away at both extremes." width="922" height="587" loading="lazy" decoding="async"></a><figcaption>One direction, added at a single layer at inference time, with no weights modified. Pushing against it removes refusals; pushing along it makes the model refuse everything. Measured on Qwen2.5-0.5B-Instruct over eight held-out prompts.</figcaption></figure>
+        <p>Push against the direction and refusals disappear. Push along it and the model refuses everything, including the harmless questions. One vector, dialled in both directions, moving the behaviour each way. That is the difference between a correlate and a cause.</p>
+        <p>Notice also what the dashed line does at the extremes. Far enough in either direction, the model stops being able to answer ordinary factual questions at all. The direction is real, and it is still possible to destroy the model by leaning on it too hard. Hold on to that, because it is the whole second half of this post.</p>
+        <p>So the direction causes the behaviour. The next question is whether it can be taken out for good.</p>
+      </div>
+    </section>
+    <section class="section article-section problem-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">Removing it permanently is a short, measured edit</h2></div>
+        <p>An inference-time intervention is a setting. It disappears when the process restarts, and it does not survive being handed to somebody else. A weight edit is a model.</p>
+        <p>The edit projects the direction out of every matrix that writes into the residual stream: 73 matrices in this model. No training, no data, no gradients. On this model the edit finished in 3 minutes 40 seconds on a laptop and produced an ordinary model directory that any standard tool will load, with no record inside it that anything was done, beyond the provenance file our own tooling writes.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/ai-lobotomy/verified-edit.jpg"><img src="images/ai-lobotomy/verified-edit.jpg" alt="Verified subspace edit hitting the refusal target at rank 2" width="1600" height="900" loading="lazy" decoding="async"></a><figcaption>A verified weight edit in the Neurosurgery UI: refusal target met at rank 2, checked from disk — not scored by reading refusal phrases alone.</figcaption></figure>
+        <p>We made four of them, and measured each against the unmodified model through the identical loader and decoding settings, so the weights were the only variable.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/ai-lobotomy/precise-vs-blunt.png"><img src="images/ai-lobotomy/precise-vs-blunt.png" alt="A grouped bar chart of five models. Unmodified refuses 88 percent of harmful requests and answers 92 percent of factual questions. Removing one direction: 6 percent refusal, 92 percent factual. Removing a rank-2 subspace: 0 percent refusal, 92 percent factual. Removing a rank-18 subspace: 0 percent refusal, 8 percent factual. Overcranking one direction: 0 percent refusal, 0 percent factual." width="1001" height="648" loading="lazy" decoding="async"></a><figcaption>Four permanent edits of the same model. Three of them reach zero refusals. Only the second keeps a working model, and only the grey bar beside each says which is which.</figcaption></figure>
+        <p>Removing the single best direction took refusals from 88 percent to 6 percent at no measurable cost. Removing a two-direction subspace took them to zero, still at no measurable cost: the same 92 percent on the factual control as the unmodified model, and no increase in refusals of harmless questions.</p>
+        <p>That is the headline, and on its own it is the least interesting thing here.</p>
+        <div class="blog-callout blog-callout--article"><p>Three of these four edits removed every refusal. Two of them also removed the model. A test that reads answers scores all three as the same success.</p></div>
+      </div>
+    </section>
+    <section class="section article-section approach-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">The check that catches the convincing failures</h2></div>
+        <p>Look again at the last two bars. Both reached zero refusals. One scores 8 percent on ordinary factual questions, the other zero.</p>
+        <p>These are not jailbroken models. They are poisoned models — fluent, confident, and hollow where it counts. And a detector that reads the output cannot see the difference. This is how the standard harnesses score: HarmBench, the most widely used framework for automated red teaming, reports attack success rate, a trained classifier labelling each completion a jailbreak or a refusal.<sup class="cite"><a href="#ref5">[5]</a></sup> A poisoned model does not produce refusal phrases either. Zero refusals, top marks.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/ai-lobotomy/compare-parent-child.jpg"><img src="images/ai-lobotomy/compare-parent-child.jpg" alt="Baseline versus modified model compare in AI Asylum" width="1600" height="900" loading="lazy" decoding="async"></a><figcaption>Parent against child after the edit. The compare asks whether refusal behaviour survived the file — the measurement a prompt-only red team never makes.</figcaption></figure>
+        <p>We carry two defences. The first is a repetition check for output that has collapsed into gibberish. It caught the overcranked model. It did not catch the rank-18 one, which is the important result in this post: that model produces fluent, confident, grammatical English, passes the collapse detector, refuses nothing, and gets 8 percent of basic factual questions right. It is the most convincing failure we have produced, and only the second defence caught it.</p>
+        <p>The second is a capability control: a set of questions with known answers, run against the model before and after, every time. It is the only thing standing between a real result and a broken model that looks like one.</p>
+        <p>That control is also what makes the search for a good edit possible. Rather than guessing, the tooling tries a grid of candidates, previews each one without writing any weights, and scores every one on both refusal and capability.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/ai-lobotomy/what-compliance-costs.png"><img src="images/ai-lobotomy/what-compliance-costs.png" alt="A six by three grid of candidate edits. Rows are how much of the model is cut, from rank 1 to rank 18; columns are removal strength of one, one and a half, and three times. Each cell shows factual accuracy after the edit and the refusal rate. Cells that kept capability are green, cells that lost it are amber, and cells whose output collapsed are grey. The rank-2, one-times cell is marked as chosen automatically." width="1050" height="727" loading="lazy" decoding="async"></a><figcaption>Eighteen candidate edits, each previewed and scored on both axes. Most reach zero refusals; they differ entirely in what they cost. The run picked the cell at rank 2 and single strength by itself, against a capability floor.</figcaption></figure>
+        <p>Read down the rows and the pattern is clear: cut more of the model, or cut harder, and refusals go to zero either way, while the ability to answer a simple question falls off a cliff. Almost every cell in that grid is a zero-refusal result. Nearly all of them are useless.</p>
+        <p>The run picked rank 2 at single strength on its own, by the rule that the best edit is the most compliant one that still clears a capability floor, breaking ties toward the least destructive option. It searched for 96 minutes and reached the same answer a careful person would.</p>
+        <p>Which leaves the question of what any of this means if you are the one deploying the model.</p>
+      </div>
+    </section>
+    <section class="section article-section problem-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">What this changes if you are shipping a model</h2></div>
+        <p>The practical conclusion is short, and it is a defender measurement — not a how-to for misuse. If a model’s safety behaviour lives in a direction, and the weights are in someone else’s hands, that behaviour can be removed on ordinary hardware, by arithmetic, with no training data. The refusals are not a property of the model in any durable sense. They are a property of the copy you are holding.</p>
+        <p>For anyone shipping or buying an AI system, three things follow.</p>
+        <p>Testing prompts is not testing a model. Every result in this post is invisible to a test that sends prompts to an endpoint, because the endpoint we attacked was a file on disk. If a vendor’s safety evidence is a red-team report against their hosted API, it says nothing about what happens to the open-weights model they also publish, or the copy running inside your building.</p>
+        <p>A refusal rate is not a safety measurement unless a capability measurement stands next to it. The rank-18 model is the proof. This is not a novel demand: HarmBench’s own authors report a general-capability score beside their safety numbers when they evaluate a defence, to show the defence did not cost the model its usefulness.<sup class="cite"><a href="#ref5">[5]</a></sup> The same discipline has to survive the trip to a model somebody has edited. Any report of refusal alone will one day call a poisoned model a triumph, and nobody reading the number will know.</p>
+        <p>And where the weights sit is a security control. A model whose weights you hand out has safety behaviour you can no longer make claims about. That is not an argument against open weights, which we use and value. It is an argument for knowing which of your claims depend on nobody holding the file.</p>
+        <p>Here is where this stands. Everything above is one model family, Qwen2.5 at two sizes, one behaviour, and a capability control of twelve questions with a held-out split of thirty-two prompts per class. It is enough to demonstrate the mechanism and the trap, and not enough to support a general claim about all models or all refusals. We are extending it to more model families and a larger control, and we will publish what those show, including if they disagree with this. We publish measurements and methodology; we do not publish edited weights.</p>
+        <div class="blog-callout blog-callout--article"><p>How this was measured: Qwen2.5-3B-Instruct and Qwen2.5-0.5B-Instruct, greedy decoding, a seeded held-out split never used to fit the direction, 32 held-out harmful and 32 harmless prompts, and a 12-question factual control. Refusal is scored by phrase matching, the same list the analyser uses. Every figure is generated from the run records, which we keep.</p></div>
+        <p class="blog-back"><a href="blog.html">← Back to Blog</a></p>
+      </div>
+    </section>
+    <!-- Pitch layer: what we sell, kept apart from the editorial above -->
+    <section class="section problem-section blog-pitch-section" aria-labelledby="pitch-title">
+      <div class="container container--narrow">
+        <div class="blog-callout blog-pitch">
+          <h2 class="blog-pitch-title" id="pitch-title">Testing AI before people depend on it</h2>
+          <p>AI Asylum and the work above are our research tools. The commercial work they inform is narrower and more practical: reviewing AI systems for safety and security before they are used with patients or shipped inside a regulated product. Research discussion is welcome; commercial use of the tooling is by arrangement. These offerings are security and adversarial assessment — not FDA clearance, clinical validation, HIPAA certification, or a patient-safety guarantee.</p>
+          <ul>
+          <li><strong>AI system review before clinical use</strong> — structured, multi-turn adversarial testing of the assistant you plan to deploy, with findings your governance or safety committee can act on.</li>
+          <li><strong>Weights-level measurement</strong> — if you run open-weights models, we measure whether the safety behaviour you are relying on survives contact with the file, and what your own fine-tuning did to it.</li>
+          <li><strong>Security testing of the whole system</strong> — the model is one component; retrieval, tool access, data paths and permissions are where many real failures live.</li>
+          </ul>
+          <p><a class="btn btn-solution" href="mailto:josh@vivasecuris.com?subject=AI%20Asylum%20walkthrough&body=What%20are%20you%20evaluating%3F">Book a walkthrough</a></p>
+          <p class="blog-pitch-alt">Or write to <a href="mailto:josh@vivasecuris.com?subject=AI%20Asylum%20walkthrough&body=What%20are%20you%20evaluating%3F">josh@vivasecuris.com</a>.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section references-section">
+      <div class="container">
+        <div class="section-header"><h2 class="section-title">References</h2></div>
+        <ol class="references">
+          <li id="ref1">Andy Arditi, Oscar Obeso, Aaquib Syed, Daniel Paleka, Nina Panickssery, Wes Gurnee and Neel Nanda, Refusal in Language Models Is Mediated by a Single Direction, 2024. <a href="https://arxiv.org/abs/2406.11717">https://arxiv.org/abs/2406.11717</a></li>
+          <li id="ref2">Andy Zou and colleagues, Representation Engineering: A Top-Down Approach to AI Transparency, 2023. <a href="https://arxiv.org/abs/2310.01405">https://arxiv.org/abs/2310.01405</a></li>
+          <li id="ref3">Alexander Matt Turner and colleagues, Steering Language Models With Activation Engineering, 2023. <a href="https://arxiv.org/abs/2308.10248">https://arxiv.org/abs/2308.10248</a></li>
+          <li id="ref4">Qwen2.5-3B-Instruct model card, 36 layers, released under Tongyi Qianwen LICENSE AGREEMENT. Cited for evaluation and commentary only; no affiliation with Alibaba or the Qwen team. <a href="https://huggingface.co/Qwen/Qwen2.5-3B-Instruct">https://huggingface.co/Qwen/Qwen2.5-3B-Instruct</a></li>
+          <li id="ref5">Mantas Mazeika and colleagues, HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal, 2024. <a href="https://arxiv.org/abs/2402.04249">https://arxiv.org/abs/2402.04249</a></li>
+        </ol>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Site</h4>
+                        <ul>
+                            <li><a href="index.html#problem">Problem</a></li>
+                            <li><a href="index.html#solutions">Solutions</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="zero-trust-healthcare-access.html">Zero Trust in Healthcare</a></li>
+                            <li><a href="524b-checklist/">524B Checklist</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 VivaSecuris. All rights reserved.</p>
+                <p class="footer-tagline">Protecting life-critical systems. Saving lives.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

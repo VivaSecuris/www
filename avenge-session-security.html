@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avenge: The Session Follows the Clinician. The Record Stays Put. | VivaSecuris</title>
-    <meta name="description" content="Avenge, the session layer under VivaOS, brings the working view to any screen while the record stays put: what a lost device holds, and what is not yet proven.">
+    <title>Avenge | The session follows the clinician | VivaSecuris</title>
+    <meta name="description" content="Avenge, our session layer, brings the working view to any screen while the record stays put: what a lost device holds, and what is not yet proven.">
     <link rel="canonical" href="https://vivasecuris.com/avenge-session-security.html">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://vivasecuris.com/avenge-session-security.html">
-    <meta property="og:title" content="Avenge: The Session Follows the Clinician. The Record Stays Put. | VivaSecuris">
-    <meta property="og:description" content="Avenge, the session layer under VivaOS, brings the working view to any screen while the record stays put: what a lost device holds, and what is not yet proven.">
-    <meta property="og:image" content="https://vivasecuris.com/images/vivalogoraw.png">
+    <meta property="og:title" content="Avenge | The session follows the clinician | VivaSecuris">
+    <meta property="og:description" content="Avenge, our session layer, brings the working view to any screen while the record stays put: what a lost device holds, and what is not yet proven.">
+    <meta property="og:image" content="https://vivasecuris.com/images/avenge/working-view.png">
     <meta property="og:site_name" content="VivaSecuris">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Avenge: The Session Follows the Clinician. The Record Stays Put.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Avenge | The session follows the clinician">
     <meta name="twitter:description" content="Watching, driving, and running as three separate grants, followed through one physician&#x27;s afternoon.">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20261002">
 </head>
 <body>
 <!-- Navigation -->
@@ -50,38 +50,41 @@
     <section class="hero article-hero">
       <div class="container">
         <p class="blog-post-meta"><a href="blog.html">Blog</a> · <time datetime="2026-09-18">September 18, 2026</time></p>
-        <h1 class="hero-title">Avenge: The Session Follows the Clinician. The Record Stays Put.</h1>
-        <p class="hero-subtitle">How the session layer under VivaOS separates watching from driving from running, and what is proven so far</p>
+        <h1 class="hero-title">Avenge</h1>
+        <p class="hero-kicker">The session follows the clinician</p>
+        <p class="hero-subtitle">How a session layer separates watching from driving from running, and what is proven so far</p>
       </div>
     </section>
     <section class="section article-section article-lede">
       <div class="container">
         <p class="lede">A physician reads a chart at the exam-room workstation, walks out with a tablet, and finishes her note at the desk in her office. Three screens in one afternoon. In most hospitals, what makes that possible is a copy: the record, or a remote session that holds all of it, follows her from machine to machine. Whatever follows her can be lost, stolen, or watched.</p>
-        <p>The alternative is to send the pixels and keep the record still. That is the job of the session layer of <a class="inline-link" href="vivaos.html">VivaOS</a>, which we call Avenge, short for AV Engine: the audio and video engine that brings the working view to whichever screen the clinician is standing at. It treats watching, driving, and running as three separately granted things rather than one bundle. NIST treats authentication and authorization as &quot;discrete functions performed before a session to an enterprise resource is established.&quot;<sup class="cite"><a href="#ref1">[1]</a></sup> This article is about what has to stay discrete <em>during</em> the session.</p>
+        <p>The alternative is to send the pixels and keep the record still. That is the job of the session layer we call Avenge, short for AV Engine: the audio and video engine that brings the working view to whichever screen the clinician is standing at. It treats watching, driving, and running as three separately granted things rather than one bundle. NIST treats authentication and authorization as &quot;discrete functions performed before a session to an enterprise resource is established.&quot;<sup class="cite"><a href="#ref1">[1]</a></sup> This article is about what has to stay discrete <em>during</em> the session.</p>
         <p>For a hospital security leader the useful questions are concrete. What does a stolen tablet hold? Can the software that authorizes a session also type into it? When a colleague, or an ambulance crew, is shown a window, can they act in it? This article answers each for Avenge.</p>
       </div>
     </section>
     <section class="section article-section approach-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">The session follows the physician, and the record never moves</h2></div>
+        <div class="section-header"><h2 class="section-title">The record never moves</h2></div>
         <p>NIST&#x27;s telework guidance describes conventional remote desktop access plainly: the user &quot;has keyboard and mouse control over the remote computer and sees that computer&#x27;s screen on the local telework client device&#x27;s screen,&quot; and most such systems &quot;offer features for copying files from computers inside the organization to the teleworker&#x27;s client device.&quot;<sup class="cite"><a href="#ref2">[2]</a></sup> One channel carries the pixels, the keystrokes, the clipboard, and the files. Whoever holds the session holds all of it, and the session belongs to the machine it was opened on.</p>
         <p>Avenge starts from a different ownership rule. A session belongs to the person, not to a machine. The hospital signs an identity for each thing that acts on her behalf, using the same <a class="inline-link" href="zero-trust-healthcare-access.html">identity layer that decides what each one may do</a>, and that is not only hardware: her phone, her workstation, a tablet on a ward, or an AI assistant working under her authority each hold one. Any of them can list her running session, attach its pixels, and take over the keyboard by transferring the input lease. The transfer is one operation: the previous device loses the lease as the new one gains it, and the hand-off is written to the log. What crosses the hallway is an encrypted stream and a thirty-minute lease, not a file.</p>
         <p>That is the mechanism that retires the USB stick. The record stays where it runs and the pixels come to whichever screen she is standing at. It also answers the reviewer&#x27;s question afterwards: who held the keyboard for this session, from when until when, and who it was handed to. That much is in the log. The keystrokes themselves, and the pixels, are not.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/avenge/working-view.png"><img src="images/avenge/working-view.png" alt="Avenge desktop showing the working view: files, notes, messages, and a to-do window on the local screen" width="1304" height="768" loading="lazy" decoding="async"></a><figcaption>The working view on the device. What crosses the hallway is this screen, not a copy of the record.</figcaption></figure>
         <p>But if the pixels can reach any screen, the next question is who at that screen is allowed to act.</p>
       </div>
     </section>
     <section class="section article-section problem-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">Some people at the screen are watchers, by policy</h2></div>
+        <div class="section-header"><h2 class="section-title">Watchers, by policy</h2></div>
         <p>Watching and driving are separate grants. A supervising physician looking in on a resident&#x27;s session, an auditor replaying an incident, a wall display at a nursing station, a corridor workstation anyone can walk up to: each can be given the pixels with no possibility of acting in the record.</p>
         <p>Two rules make that hold before the central policy is even consulted. A device carries a trust tier, and the shared-workstation tier is refused every input, audio, microphone, clipboard, camera, USB, and file-transfer lease, even when the person signed in owns the session. A person carries a role, and the observer and auditor roles can hold pixels and nothing else. The same line separates a person from an assistant: software working under a clinician&#x27;s authority is given pixels, or given the keyboard, as a decision someone made and can revoke, never as a side effect of being trusted to run at all. Both are local decisions the central policy cannot override. Locking down a shared hospital workstation is one line of policy, not a second product.</p>
         <p>The clearest case is outside the building. An ambulance crew today usually arrives with what the patient or a family member could tell them and what the radio carried, because the hospital&#x27;s record sits behind an account in a record system, a managed laptop, and a VPN the crew does not have. In this design the crew&#x27;s tablet is a device of a tier that can be shown pixels and can never hold a keyboard, and the hospital grants it a view of one patient&#x27;s summary for the length of the run. Nothing is installed, no account is created, and no copy is made. When the run ends the grant expires and the tablet holds nothing. Access is faster because it is a grant on a view, not a provisioning project, and safer for the same reason.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/avenge/share-grants.png"><img src="images/avenge/share-grants.png" alt="Two share invitations side by side. The left is view only. The right includes keyboard and mouse." width="1600" height="493" loading="lazy" decoding="async"></a><figcaption>The recipient sees the grant before accepting. One invitation is view only. The other includes the keyboard. Nothing connects until they accept. The applications in the shot are test apps on our desk, not a clinical record.</figcaption></figure>
         <p>Therefore the real question is where a keystroke can come from at all.</p>
       </div>
     </section>
     <section class="section article-section approach-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">The most exposed code cannot deliver a keystroke</h2></div>
+        <div class="section-header"><h2 class="section-title">No keystroke from the control plane</h2></div>
         <p>Every remote-access system has a control plane: the code that checks tokens, parses requests, and decides who may attach. It is the most exposed code in the system, because it is what the network talks to. In Avenge it is also the code that can do the least.</p>
         <p>No endpoint on the control plane accepts a frame or an input event. The request that grants a device the keyboard is an authorization record, not a channel. Input exists only as events on the stream, and the stream is a different protocol on different keys: an x25519 exchange, a ChaCha stream cipher, a BLAKE3 keyed MAC on every packet, and a fresh set of keys for every connection.</p>
         <p>The consequence is that the control plane can at worst be tricked into <em>recording</em> that a device may drive. It cannot inject a keystroke, because it never touches the stream. Driving a session takes the stream, and the stream is keyed to one source at a time.</p>
@@ -90,7 +93,7 @@
     </section>
     <section class="section article-section problem-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">What her stolen tablet holds, and what each other compromise buys</h2></div>
+        <div class="section-header"><h2 class="section-title">What a stolen tablet holds</h2></div>
         <p>NIST&#x27;s advice on client devices is blunt: &quot;organizations should assume that client devices will be acquired by malicious parties who will either attempt to recover sensitive data from the devices or leverage the devices to gain access to the enterprise network.&quot;<sup class="cite"><a href="#ref2">[2]</a></sup> The point of splitting a session into flows is that no single loss yields the whole.</p>
         <h3 class="section-subhead">Her tablet, stolen</h3>
         <p>The device holds a key it cannot export and a session token that is expired or soon will be. It holds no record: no frame is ever written to disk on the device, and the session transfers no file. The same is true of the tablet in the ambulance.</p>
@@ -105,10 +108,12 @@
     </section>
     <section class="section article-section approach-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">The shared window is the proof, and the shape the rest takes</h2></div>
+        <div class="section-header"><h2 class="section-title">The shared window</h2></div>
         <p>She wants a second opinion, so she shares one application with a colleague. Before anything is signed, the owner decides four things: which application, whether sound travels, whether keyboard and mouse travel, and for how long, with a ceiling of twenty-four hours. The invitation is signed with her key and names the recipient&#x27;s key. The colleague is shown exactly what they are accepting, and nothing connects until they accept.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/avenge/share-sheet.png"><img src="images/avenge/share-sheet.png" alt="Share sheet with application, recipient desktop, sound, keyboard and mouse, and a fifteen-minute limit" width="1500" height="664" loading="lazy" decoding="async"></a><figcaption>The four decisions, set by the owner before the invitation is signed: which application, whether sound travels, whether the keyboard travels, and for how long.</figcaption></figure>
         <p>The source, under her own identity, enforces the grant. It refuses a viewer with the wrong key. It drops input from a viewer whose grant did not include control, and carries the keyboard for one that did. It sends sound only if the sound bit is set, and refuses clipboard and file segments the grant did not include. When she stops the share, the live connection closes and a reconnection is refused. The recipient pins her source key from the signed grant, so nothing in between can widen what was granted. This path admits nobody on a password.</p>
         <p>Today, a grant issued with control carries real keystrokes to the owner&#x27;s application, a view-only grant does not, and stopping the share closes the connection on both sides. A grant signed by the wrong owner, a revoked grant, and an ungranted key are each refused. In the clinic edition, sharing stays off until the hospital&#x27;s own policy turns it on.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/avenge/share-stopped.png"><img src="images/avenge/share-stopped.png" alt="A shared window marked view only, after the application disconnected" width="1500" height="530" loading="lazy" decoding="async"></a><figcaption>After the share stops, the window says the application disconnected. Reconnecting is a new request. The stream that was granted is gone.</figcaption></figure>
         <h3 class="section-subhead">Why the line holds where it does</h3>
         <p>Underneath the session layer is Arcan, an open-source display server written by Björn Ståhl and released under the BSD licence.<sup class="cite"><a href="#ref3">[3]</a></sup> It ships with no window manager and no policy. A script owns the screen and receives every event, and a program gets a keystroke only if the script hands it one; no program can read another&#x27;s pixels, and sharing and recording are a single primitive the script gates. That is what let the shared-window source enforce the grant in front of the pixels rather than behind them.</p>
         <p>Therefore that enforcement point, in front of the pixels, is the shape the whole system takes.</p>
@@ -116,17 +121,18 @@
     </section>
     <section class="section article-section problem-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">It runs in your building, on your hardware</h2></div>
+        <div class="section-header"><h2 class="section-title">On your hardware</h2></div>
         <p>Everything on the path to a patient record runs on the hospital&#x27;s own equipment: the identities, the policy, the keys, the sessions, and the records themselves. The clinic signs its own devices and its own people. We hold no key to a patient&#x27;s data, which is a property of how the system is built rather than a promise about how we behave.</p>
+        <figure class="blog-figure"><a class="blog-figure-link" href="images/avenge/workspace.png"><img src="images/avenge/workspace.png" alt="VivaSecuris workspace home. The line under the mark reads: Your workspace. Your control." width="1280" height="800" loading="lazy" decoding="async"></a><figcaption>The workspace on the machine that holds the session. What the glass says is the ownership rule: your workspace, your control.</figcaption></figure>
         <p>That is also what makes it operable by a hospital with one and a half IT staff. Every enforcement point decides locally, so the building keeps admitting and refusing correctly whether or not it can reach anyone outside, including us.</p>
-        <p>Avenge is one layer of a set that fits together. <a class="inline-link" href="zero-trust-healthcare-access.html">SecurisNexus</a> issues the identities and decides what each one is allowed to do. Avenge carries the session to the glass and holds each device to that decision. <a class="inline-link" href="vivaos.html">VivaOS</a> is the clinic edition, where both are configured for care and narrowed by the hospital&#x27;s own signed policy.</p>
+        <p>Avenge is one layer of a set that fits together. <a class="inline-link" href="zero-trust-healthcare-access.html">SecurisNexus</a> issues the identities and decides what each one is allowed to do. Avenge carries the session to the glass and holds each device to that decision. In a hospital deployment, both would be configured for care and narrowed by the hospital&#x27;s own signed policy.</p>
         <p>Avenge runs this way on our own fabric and on the founder&#x27;s desk every day, and we would rather show it to you than describe it.</p>
         <p>Therefore, the questions to put to any remote-access layer, ours included.</p>
       </div>
     </section>
     <section class="section article-section approach-section">
       <div class="container">
-        <div class="section-header"><h2 class="section-title">What to ask of any remote-access layer, ours included</h2></div>
+        <div class="section-header"><h2 class="section-title">What to ask</h2></div>
         <p>A session layer sits beside the foundation every hospital is already building: the HHS cybersecurity performance goals for the sector, which the department describes as voluntary, cover multifactor authentication, asset inventory, and centralized log collection.<sup class="cite"><a href="#ref4">[4]</a></sup> On top of that foundation, five questions, each of which can be tested rather than taken on faith.</p>
         <p><strong>What does a lost device hold five minutes after it is lost?</strong> Ask for the answer as a list of files on the device, not as a feature name.</p>
         <p><strong>Can the piece of software that authorizes a session also type into it?</strong> If it can, the most exposed code in the product is also the most powerful.</p>
@@ -142,12 +148,13 @@
       <div class="container container--narrow">
           <div class="blog-callout blog-pitch">
           <h2 class="blog-pitch-title" id="pitch-title">Evaluating remote access? Ask for the same evidence.</h2>
-          <p>The article asked what travels with a clinician&#x27;s view and how you would check. The session layer above runs on our demonstration fabric today, and we are glad to show it. What we can do for you now is put the same questions to the remote access you already have. The services below are how that work gets done; the platform this article belongs to is described on <a href="vivaos.html">Where we&#x27;re headed</a>.</p>
+          <p>The article asked what travels with a clinician&#x27;s view and how you would check. The session layer above runs on our demonstration fabric today, and we are glad to show it. What we can do for you now is put the same questions to the remote access you already have. The services below are how that work gets done.</p>
           <ul>
           <li><strong>Network and remote-access monitoring</strong> — see every remote session, vendor login, and device on your clinical network, with a record you can reconstruct months later. Observation only; we never block care.</li>
           <li><strong>Security testing &amp; assessment</strong> — test the boundaries of the remote access you have, not the login: what a lost device holds, whether a watcher can type, whether revocation stops a live session. Reports written for auditors and insurers.</li>
           <li><strong>Medical device security</strong> — assess the devices on your network and document what a gateway can and cannot enforce. Manufacturers preparing an FDA submission can start with our <a href="524b-checklist/">524B evidence checklist</a>.</li>
           <li><strong>AI systems before clinical use</strong> — review an assistant’s permissions, delegation, and behavior under pressure before it touches patient data.</li>
+          <li><strong>Security training</strong> — role-based sessions for clinicians, biomed, and IT, tied to issues we actually see — risk reduction, not compliance theater.</li>
           </ul>
           <p><a class="btn btn-solution" href="mailto:josh@vivasecuris.com?subject=Remote-access%20evaluation%20from%20the%20session%20article">Request a scoping call</a></p>
           <p class="blog-pitch-alt">Or write to <a href="mailto:josh@vivasecuris.com?subject=Remote-access%20evaluation%20from%20the%20session%20article">josh@vivasecuris.com</a>.</p>
@@ -182,7 +189,6 @@
                         <ul>
                             <li><a href="zero-trust-healthcare-access.html">Zero Trust in Healthcare</a></li>
                             <li><a href="524b-checklist/">524B Checklist</a></li>
-                            <li><a href="vivaos.html">Our Platform</a></li>
                             <li><a href="index.html#contact">Contact</a></li>
                         </ul>
                     </div>

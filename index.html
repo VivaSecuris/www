@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VivaSecuris | Live a Safe Life | Healthcare Security for Clinics &amp; Hospitals</title>
-    <meta name="description" content="VivaSecuris. Network monitoring (Elasticsearch, AI anomaly detection) and security consulting for healthcare: red teaming, medical devices, and AI. We protect life-critical systems without disrupting care.">
+    <meta name="description" content="VivaSecuris. Network monitoring (Elasticsearch, AI anomaly detection) and security consulting for healthcare: red teaming, medical devices, AI, and training. We protect life-critical systems without disrupting care.">
     <link rel="canonical" href="https://vivasecuris.com/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vivasecuris.com/">
@@ -21,7 +21,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20261002h">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://vivasecuris.com/#organization","name":"VivaSecuris","url":"https://vivasecuris.com","logo":"https://vivasecuris.com/images/vivalogoraw.png","description":"Security review and solutions for healthcare: clinics, doctor offices, hospitals, and laboratories. We protect life-critical systems and patient data without disrupting care."},{"@type":"WebSite","name":"VivaSecuris","url":"https://vivasecuris.com","description":"Healthcare security for clinics and hospitals. Security review, network monitoring, AI and medical device security.","publisher":{"@id":"https://vivasecuris.com/#organization"}}]}
     </script>
@@ -55,7 +55,7 @@
             <div class="hero-content">
                 <h1 class="hero-title">Live a Safe Life</h1>
                 <p class="hero-subtitle">When security fails in healthcare, patients and staff are at risk. We help prevent that.</p>
-                <p class="hero-tagline">We help keep health information protected, care available when attacks or outages hit, and the devices and AI used in treatment checked for safety first. We offer network monitoring and security consulting now, with more coming for healthcare.</p>
+                <p class="hero-tagline">We help keep health information protected, care available when attacks or outages hit, and the devices and AI used in treatment checked for safety first. We offer network monitoring and security consulting for healthcare today.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Get in touch</a>
                     <a href="#solutions" class="btn btn-secondary">What we offer</a>
@@ -90,6 +90,11 @@
                         <div class="card-icon">🏥</div>
                         <h3>Patient safety at stake</h3>
                         <p>Security failures in healthcare aren't just data breaches. They become patient-safety incidents and operational shutdowns. Every gap we help close protects lives.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="card-icon">📋</div>
+                        <h3>Nothing you can show</h3>
+                        <p>After an incident, a shared password and a policy PDF don't show who was in the system, what a device did, or whether an AI was checked. You need a record, not a story.</p>
                     </div>
                 </div>
                 <div class="problem-consequence">
@@ -127,61 +132,73 @@
                     <h3>AI systems before you use them in care</h3>
                     <p>Before AI or chatbots are used with patients, we review them for safety and security. We check and tighten them so you can use them with confidence in your practice, hospital, or lab.</p>
                 </div>
+                <div class="solution-card solutions-card">
+                    <div class="solution-icon">🎓</div>
+                    <h3>Security training</h3>
+                    <p>Role-based training for clinicians, biomed, and IT, tied to issues we actually see on your network — not generic awareness slideshows. Built as risk reduction you can show auditors, not compliance theater.</p>
+                </div>
+                <div class="solution-card solutions-card">
+                    <div class="solution-icon">🪪</div>
+                    <h3>Who can open a chart</h3>
+                    <p>A shared login hides the person. We set access as an explicit decision — who, which device, how long — and keep that record, so you can explain it later.</p>
+                </div>
             </div>
             <p class="solutions-cta-single"><a href="#contact" class="btn btn-solution">Get in touch</a></p>
         </div>
     </section>
 
-    <!-- What we're building -->
-    <section class="section">
+    <section class="section home-takeback" aria-labelledby="home-takeback-title">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What we're building</h2>
-                <p class="section-subtitle">A security layer for clinical networks. Each part has a piece of writing behind it.</p>
+                <h2 class="section-title" id="home-takeback-title">What we’re building</h2>
+                <p class="section-subtitle">Taking your life back — and the security around it.</p>
             </div>
-            <div class="blog-story-grid">
-                <div class="blog-story-card home-build-card">
-                    <h3>Identity</h3>
-                    <p>Every person, device, and service carries an identity the clinic signs, and each request is checked against what that identity is allowed to do.</p>
-                    <a class="blog-post-more" href="zero-trust-healthcare-access.html">How that works &rarr;</a>
+            <div class="problem-intro">
+                <p class="problem-lead">A safe life is one you can still hold: your care, your data, and the systems that act on them. When those sit behind a hosted window you cannot open or measure, that life is rented. We build the opposite — so the record stays where it runs, the session carries pixels instead of a file, and the AI you trust is a weight file you can open on your own machine.</p>
+            </div>
+            <div class="problem-grid home-takeback-points">
+                <div class="problem-card">
+                    <h3>Your data</h3>
+                    <p>No patient record rides a USB stick or a remote desktop that holds the whole chart.</p>
                 </div>
-                <div class="blog-story-card home-build-card">
-                    <h3>Sessions</h3>
-                    <p>The working view follows the clinician to whatever screen they are standing at, and the record never moves.</p>
-                    <a class="blog-post-more" href="avenge-session-security.html">How that works &rarr;</a>
+                <div class="problem-card">
+                    <h3>Your AI</h3>
+                    <p>Open weights, local runs, and measurements of what is removable from the file — not a refusal score against someone else’s API.</p>
                 </div>
-                <div class="blog-story-card home-build-card">
-                    <h3>The clinic edition</h3>
-                    <p>The whole stack, set up for care and narrowed by the hospital's own policy, running on the hospital's own hardware.</p>
-                    <a class="blog-post-more" href="vivaos.html">Where we're headed &rarr;</a>
+                <div class="problem-card">
+                    <h3>Your evidence</h3>
+                    <p>Who held the keyboard, what a device can prove, and what a reviewer can open.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Your session</h3>
+                    <p>The screen you work on is not where the chart lives. The view can follow you. The record stays.</p>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <h3 class="section-subhead">Latest writing</h3>
-            <div class="blog-list blog-list--compact">
-                <article class="blog-post">
-                    <header class="blog-post-header">
-                        <time class="blog-post-date" datetime="2026-09-18">September 18, 2026</time>
-                        <h3 class="blog-post-title"><a href="avenge-session-security.html">Avenge: The Session Follows the Clinician. The Record Stays Put.</a></h3>
-                    </header>
-                </article>
 
-                <article class="blog-post">
-                    <header class="blog-post-header">
-                        <time class="blog-post-date" datetime="2026-07-13">July 13, 2026</time>
-                        <h3 class="blog-post-title"><a href="524b-refuse-to-accept.html">Why FDA Refuses to Accept Cyber Device Submissions, and the Evidence That Prevents It</a></h3>
-                    </header>
-                </article>
-
-                <article class="blog-post">
-                    <header class="blog-post-header">
-                        <time class="blog-post-date" datetime="2026-05-11">May 11, 2026</time>
-                        <h3 class="blog-post-title"><a href="zero-trust-healthcare-access.html">SecurisNexus: Building Healthcare Systems That Don't Rely on Blind Trust</a></h3>
-                    </header>
-                </article>
+            <div class="home-takeback-pair">
+                <a class="home-takeback-card" href="ai-lobotomy.html">
+                    <img src="images/ai-lobotomy/same-question.png" alt="Same question asked of an edited parent and a refusal-trained child; one decides HELP, the other DECLINE." width="1920" height="1080">
+                    <span class="home-takeback-card-body">
+                        <time datetime="2026-09-24">September 24, 2026</time>
+                        <h3>AI Lobotomy</h3>
+                        <p class="home-takeback-card-kicker">Agentic Neurosurgery</p>
+                        <p>Same question. One edited model helps; the refusal-trained child declines. That is what control looks like when the weights are yours to open and measure — not a chat window you rent.</p>
+                        <span class="blog-post-more">Read the article →</span>
+                    </span>
+                </a>
+                <a class="home-takeback-card" href="blog-ai-asylum.html">
+                    <img src="images/aiasylum/doctor-patient.jpg" alt="Completed Asylum test run: a doctor model interviewing a patient model." width="1280" height="720">
+                    <span class="home-takeback-card-body">
+                        <time datetime="2026-03-05">March 5, 2026</time>
+                        <h3>AI Asylum</h3>
+                        <p class="home-takeback-card-kicker">Psychoanalyzing models</p>
+                        <p>A doctor model interviews a patient model under pressure, on your machine. You keep the transcript and the score. That is how you check AI before anyone’s care depends on it.</p>
+                        <span class="blog-post-more">Read the article →</span>
+                    </span>
+                </a>
             </div>
-            <p><a class="blog-post-more" href="blog.html">See all writing &rarr;</a></p>
+
+            <p class="solutions-cta-single"><a href="blog.html" class="btn btn-solution">See all writing</a></p>
         </div>
     </section>
 
@@ -219,6 +236,8 @@
                             <li>Security testing and assessment with reports for compliance and insurance</li>
                             <li>Medical device security review for hospitals and manufacturers</li>
                             <li>AI system review before use in patient care</li>
+                            <li>Security training for clinicians, biomed, and IT — tied to real issues, not generic slideshows</li>
+                            <li>Access you can explain: who opened a chart, from which device, for how long</li>
                         </ul>
                     </div>
                 </div>
@@ -289,7 +308,6 @@
                         <ul>
                             <li><a href="zero-trust-healthcare-access.html">Zero Trust in Healthcare</a></li>
                             <li><a href="524b-checklist/">524B Checklist</a></li>
-                            <li><a href="vivaos.html">Our Platform</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
