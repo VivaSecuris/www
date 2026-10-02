@@ -149,14 +149,15 @@
         </div>
     </section>
 
-    <section class="section home-takeback" aria-labelledby="home-takeback-title">
+    <!-- What we're building: medical-security research (white band) -->
+    <section id="research" class="section home-takeback" aria-labelledby="home-takeback-title">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title" id="home-takeback-title">What we’re building</h2>
-                <p class="section-subtitle">Taking your life back — and the security around it.</p>
+                <p class="section-subtitle">Medical security research — identity, sessions, and the devices in the room.</p>
             </div>
             <div class="problem-intro">
-                <p class="problem-lead">A safe life is one you can still hold: your care, your data, and the systems that act on them. When those sit behind a hosted window you cannot open or measure, that life is rented. We build the opposite — so the record stays where it runs, the session carries pixels instead of a file, and the AI you trust is a weight file you can open on your own machine.</p>
+                <p class="problem-lead">A safe life is one you can still hold: your care, your data, and the systems that act on them. When those sit behind a hosted window you cannot open or measure, that life is rented. We build the opposite — the record stays where it runs, the session carries pixels instead of a file, and who did what is a record you can open, not a story.</p>
             </div>
             <div class="problem-grid home-takeback-points">
                 <div class="problem-card">
@@ -164,30 +165,58 @@
                     <p>No patient record rides a USB stick or a remote desktop that holds the whole chart.</p>
                 </div>
                 <div class="problem-card">
-                    <h3>Your AI</h3>
-                    <p>Open weights, local runs, and measurements of what is removable from the file — not a refusal score against someone else’s API.</p>
+                    <h3>Your session</h3>
+                    <p>The screen you work on is not where the chart lives. The view can follow you. The record stays.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Your devices</h3>
+                    <p>A device used in care shows what it runs and what it can prove before it touches a patient. FDA can refuse a cyber device on cybersecurity alone — that evidence belongs to you too.</p>
+                    <a class="blog-post-more" href="524b-refuse-to-accept.html">Read: Refuse to Accept →</a>
                 </div>
                 <div class="problem-card">
                     <h3>Your evidence</h3>
                     <p>Who held the keyboard, what a device can prove, and what a reviewer can open.</p>
                 </div>
-                <div class="problem-card">
-                    <h3>Your session</h3>
-                    <p>The screen you work on is not where the chart lives. The view can follow you. The record stays.</p>
-                </div>
             </div>
 
             <div class="home-takeback-pair">
-                <a class="home-takeback-card" href="ai-lobotomy.html">
-                    <img src="images/ai-lobotomy/verified-edit.jpg" alt="AI Asylum verified edit: the refusal target is met and this copy refuses 0 percent." width="1280" height="720">
+                <a class="home-takeback-card" href="zero-trust-healthcare-access.html">
+                    <img src="images/nexus/policy-detail.png" alt="SecurisNexus policy detail: a read-only policy with verdict Allowed for one action, one resource, and one subject." width="800" height="780">
                     <span class="home-takeback-card-body">
-                        <time datetime="2026-09-24">September 24, 2026</time>
-                        <h3>AI Lobotomy</h3>
-                        <p class="home-takeback-card-kicker">Agentic Neurosurgery</p>
-                        <p>The same app, after the edit. Refusal target met, checked from disk, this copy refuses 0%. You are looking at a model you can open — not a score from a chat window you rent.</p>
+                        <time datetime="2026-05-11">May 11, 2026</time>
+                        <h3>SecurisNexus</h3>
+                        <p class="home-takeback-card-kicker">Care without blind trust</p>
+                        <p>A login settles who is at the keyboard, not what they may open, from which device, or for how long. SecurisNexus makes each of those an explicit decision and keeps the record you can show later.</p>
                         <span class="blog-post-more">Read the article →</span>
                     </span>
                 </a>
+                <a class="home-takeback-card" href="avenge-session-security.html">
+                    <img src="images/avenge/workspace.png" alt="Avenge workspace: a clinician’s desktop and app dock delivered to the screen as a session while the record stays where it runs." width="1280" height="800">
+                    <span class="home-takeback-card-body">
+                        <time datetime="2026-09-18">September 18, 2026</time>
+                        <h3>Avenge</h3>
+                        <p class="home-takeback-card-kicker">The session follows the clinician</p>
+                        <p>Your working view comes to whatever screen you are at; the chart never leaves the machine that holds it. A lost tablet holds pixels, not a record — and we say what is proven so far and what is not.</p>
+                        <span class="blog-post-more">Read the article →</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Where AI security fits (grey band). solutions-section is used only for its
+         background: it is a single rule with no descendant selectors. -->
+    <section id="ai-security" class="section solutions-section home-ai-security" aria-labelledby="home-ai-title">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="home-ai-title">Where AI security fits</h2>
+                <p class="section-subtitle">AI used in care meets the same bar as a device used in care.</p>
+            </div>
+            <div class="problem-intro">
+                <p class="problem-lead">AI is part of treatment now, so it has to show what it does before it touches a patient — the bar a medical device already meets. You can only check an AI you can open and measure. That is why our research runs on open weights, on your own machine, and measures what can be removed from the file, not a refusal score against someone else’s API. A model that fails in care is a security failure, and security failures must not become patient harm.</p>
+            </div>
+
+            <div class="home-takeback-pair">
                 <a class="home-takeback-card" href="blog-ai-asylum.html">
                     <img src="images/aiasylum/doctor-patient.jpg" alt="Completed Asylum test run: a doctor model interviewing a patient model." width="1280" height="720">
                     <span class="home-takeback-card-body">
@@ -195,6 +224,16 @@
                         <h3>AI Asylum</h3>
                         <p class="home-takeback-card-kicker">Psychoanalyzing models</p>
                         <p>A doctor model interviews a patient model under pressure, on your machine. You keep the transcript and the score. That is how you check AI before anyone’s care depends on it.</p>
+                        <span class="blog-post-more">Read the article →</span>
+                    </span>
+                </a>
+                <a class="home-takeback-card" href="ai-lobotomy.html">
+                    <img src="images/ai-lobotomy/verified-edit.jpg" alt="AI Lobotomy verified edit: the refusal target is met and this copy refuses 0 percent." width="1280" height="720">
+                    <span class="home-takeback-card-body">
+                        <time datetime="2026-09-24">September 24, 2026</time>
+                        <h3>AI Lobotomy</h3>
+                        <p class="home-takeback-card-kicker">Agentic Neurosurgery</p>
+                        <p>The same app, after the edit. Refusal target met, checked from disk, this copy refuses 0%. You are looking at a model you can open — not a score from a chat window you rent.</p>
                         <span class="blog-post-more">Read the article →</span>
                     </span>
                 </a>

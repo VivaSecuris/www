@@ -38,9 +38,10 @@ Product and company copy should be synced from the parent repo (`company/`, `pro
 1. **Hero** - Main value proposition (services-focused)
 2. **Problem** - The real problem in healthcare security
 3. **Solutions** - Network monitoring plus consulting offerings (Security testing, Medical device security, AI security review, Security training)
-4. **From our writing** - Links to published articles
-5. **Mission** - Why this matters
-6. **Contact** - Get in touch form
+4. **What we're building** (`#research`) - Medical-security research: data, session, devices, evidence; links the SecurisNexus, Avenge, and 524B articles
+5. **Where AI security fits** (`#ai-security`) - Why AI gets the medical-device bar; links AI Asylum and AI Lobotomy, then "See all writing"
+6. **Mission** - Why this matters
+7. **Contact** - Get in touch form
 
 Footer **Follow** links (all main pages): [LinkedIn](https://www.linkedin.com/company/vivasecuris), [X](https://x.com/vivasecuris), [YouTube](https://www.youtube.com/@VivaSecuris). Homepage JSON-LD includes the same URLs in `sameAs`.
 
