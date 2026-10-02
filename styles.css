@@ -184,9 +184,16 @@ body {
 
 .hero-buttons {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.hero-button-row {
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .hero-badge {
@@ -435,9 +442,9 @@ body {
 .home-takeback-card img {
     display: block;
     width: 100%;
-    height: 220px;
+    height: 240px;
     object-fit: cover;
-    object-position: center top;
+    object-position: left top;
     background: white;
     border-bottom: 1px solid #eee;
 }
@@ -971,6 +978,11 @@ body {
 
 .solutions-cta {
     align-self: center;
+}
+
+.solutions-cta-single {
+    text-align: center;
+    margin-top: 40px;
 }
 
 .platform-teaser {
@@ -1725,6 +1737,22 @@ body {
 .footer-tagline {
     margin-top: 10px;
     font-style: italic;
+}
+
+.footer-contact {
+    margin-top: 14px;
+    font-size: 0.95em;
+    color: #fff;
+}
+
+.footer-contact a,
+.footer-contact a:link,
+.footer-contact a:visited,
+.footer-contact a:hover,
+.footer-contact a:active {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 /* Responsive Design */
