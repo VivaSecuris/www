@@ -42,6 +42,8 @@ Product and company copy should be synced from the parent repo (`company/`, `pro
 5. **Mission** - Why this matters
 6. **Contact** - Get in touch form
 
+Footer **Follow** links (all main pages): [LinkedIn](https://www.linkedin.com/company/vivasecuris), [X](https://x.com/vivasecuris), [YouTube](https://www.youtube.com/@VivaSecuris). Homepage JSON-LD includes the same URLs in `sameAs`.
+
 ## Customization
 
 ### Colors
