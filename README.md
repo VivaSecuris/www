@@ -92,3 +92,7 @@ When approval or pilot starts:
 2. Add `vivaos.html` back to `sitemap.xml`
 3. Restore homepage/footer links if desired
 4. Update meta copy and announce on blog
+
+## Investor and newsroom pages (October 7, 2026)
+
+`investors.html` and `newsroom.html` provide company background, private investor inquiries and media contact. `accountable-ai-deployment-2026-10-07.html` is the October 7 company announcement. These pages are approved for publication and included in the sitemap. Their presentation uses `company-hub.css` and `company-hub.js`. Financing terms and private materials are not hosted on these pages.
